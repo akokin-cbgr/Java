@@ -100,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/GroupCreationTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="118" selection-start-line="22" selection-start-column="118" selection-end-line="22" selection-end-column="118" />
+            <state relative-caret-position="785">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -186,7 +186,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550404118275" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550406042644" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../addressbook-web-tests/build.gradle" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -242,18 +242,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GroupCreationTests - 2019.02.17 at 14h 34m 05s.xml">
-      <configuration name="GroupCreationTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GroupCreationTests - 2019.02.17 at 14h 34m 35s.xml">
-      <configuration name="GroupCreationTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GroupCreationTests - 2019.02.17 at 14h 35m 21s.xml">
-      <configuration name="GroupCreationTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GroupCreationTests - 2019.02.17 at 14h 38m 31s.xml">
-      <configuration name="GroupCreationTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="GroupCreationTests - 2019.02.17 at 14h 40m 39s.xml">
       <configuration name="GroupCreationTests" configurationId="TestNG" />
     </history-entry>
@@ -270,6 +258,18 @@
       <configuration name="GroupCreationTests" configurationId="TestNG" />
     </history-entry>
     <history-entry file="GroupCreationTests - 2019.02.17 at 14h 46m 07s.xml">
+      <configuration name="GroupCreationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupCreationTests - 2019.02.17 at 15h 01m 57s.xml">
+      <configuration name="GroupCreationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupCreationTests - 2019.02.17 at 15h 02m 44s.xml">
+      <configuration name="GroupCreationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupCreationTests - 2019.02.17 at 15h 03m 05s.xml">
+      <configuration name="GroupCreationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupCreationTests - 2019.02.17 at 15h 07m 05s.xml">
       <configuration name="GroupCreationTests" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -358,8 +358,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/GroupCreationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="118" selection-start-line="22" selection-start-column="118" selection-end-line="22" selection-end-column="118" />
+        <state relative-caret-position="785">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
