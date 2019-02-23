@@ -12,11 +12,15 @@ public class ContactHelper extends HelperBase{
   }
 
   public void returnToHomePage() {
-    click(By.linkText("home"));
+    click(By.linkText("home page"));
   }
 
   public void submitContactCreation() {
     click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]"));
+  }
+
+  public void confirmationDeleteContact() {
+    click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Select all'])[1]/following::input[2]"));
   }
 
   public void fillGroupForm(ContactData contactData) {
@@ -24,6 +28,7 @@ public class ContactHelper extends HelperBase{
     type(By.name("middlename"),contactData.getMiddlename());
     type(By.name("lastname"),contactData.getLastname());
     type(By.name("address"),contactData.getAddress());
+    type(By.name("email"),contactData.getEmail());
     typeSelect(By.name("bday"),contactData.getBday());
     typeSelect(By.name("bmonth"),contactData.getBmonth());
     type(By.name("byear"),contactData.getByear());
