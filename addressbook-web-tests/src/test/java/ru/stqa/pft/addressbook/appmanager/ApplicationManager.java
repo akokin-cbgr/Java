@@ -30,6 +30,7 @@ public class ApplicationManager {
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
+    contactHelper = new ContactHelper(driver);
     sessionHelper = new SessionHelper(driver);
     sessionHelper.login("admin", "secret");
   }
