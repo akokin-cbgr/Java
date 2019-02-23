@@ -16,6 +16,7 @@ public class ApplicationManager {
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
   private SessionHelper sessionHelper;
+  private ContactHelper contactHelper;
 
   String baseUrl;
   boolean acceptNextAlert = true;
@@ -43,6 +44,10 @@ public class ApplicationManager {
 
   public GroupHelper getGroupHelper() {
     return groupHelper;
+  }
+
+  public ContactHelper getContactHelper(){
+    return contactHelper;
   }
 
   public NavigationHelper getNavigationHelper() {
