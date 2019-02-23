@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 
 public class HelperBase {
   protected WebDriver driver;
@@ -17,6 +18,12 @@ public class HelperBase {
     click(locator);
     driver.findElement(locator).clear();
     driver.findElement(locator).sendKeys(text);
+  }
+
+  protected void typeSelect(By locator, String  select) {
+    click(locator);
+    driver.findElement(locator).clear();
+    new Select(driver.findElement(locator)).selectByVisibleText(select);
   }
 
   public boolean isElementPresent(By by) {
