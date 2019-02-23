@@ -22,7 +22,6 @@ public class HelperBase {
 
   protected void typeSelect(By locator, String  select) {
     click(locator);
-    driver.findElement(locator).clear();
     new Select(driver.findElement(locator)).selectByVisibleText(select);
   }
 
