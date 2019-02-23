@@ -27,7 +27,9 @@ public class ApplicationManager {
   public void init() {
     //System.setProperty("webdriver.chrome.driver", "/Java_learn/chromedriver/chromedriver.exe");                       //Если надо запускать в браузере Chrome
     //driver = new ChromeDriver();                                                                                      //Если надо запускать в браузере Chrome
+
     driver = new FirefoxDriver();
+    
     baseUrl = "https://www.katalon.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     groupHelper = new GroupHelper(driver);

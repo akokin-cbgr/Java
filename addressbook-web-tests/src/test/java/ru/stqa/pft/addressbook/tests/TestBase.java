@@ -51,7 +51,7 @@ public class TestBase {
     this.acceptNextAlert = acceptNextAlert;
   }
 
-  public String closeAlertAndGetItsText() {
+  public String closeAlertAndGetItsText() throws InterruptedException  {
     try {
       Alert alert = driver.switchTo().alert();
       String alertText = alert.getText();
