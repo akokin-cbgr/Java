@@ -13,12 +13,6 @@ public class ContactModificationTest extends TestBase{
       app.getContactHelper().submitContactModification();
       app.getContactHelper().returnToHomePage();
 
-
-
     }
-
-
-
-
 
 }
