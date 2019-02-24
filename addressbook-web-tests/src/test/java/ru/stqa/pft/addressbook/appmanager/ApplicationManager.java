@@ -20,16 +20,17 @@ public class ApplicationManager {
   private ContactHelper contactHelper;
   private TestBase testBase;
 
+
   String baseUrl;
-  boolean acceptNextAlert = true;
+  boolean acceptNextAlert;
   StringBuffer verificationErrors = new StringBuffer();
 
   public void init() {
     //System.setProperty("webdriver.chrome.driver", "/Java_learn/chromedriver/chromedriver.exe");                       //Если надо запускать в браузере Chrome
+    System.setProperty("webdriver.firefox.driver", "/Java_learn/geckodriver/geckodriver.exe");                          //Если надо запускать в браузере FireFox
     //driver = new ChromeDriver();                                                                                      //Если надо запускать в браузере Chrome
-
     driver = new FirefoxDriver();
-    
+
     baseUrl = "https://www.katalon.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     groupHelper = new GroupHelper(driver);
@@ -59,4 +60,43 @@ public class ApplicationManager {
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
   }
+
+  public String closeAlertAndGetItsText() throws InterruptedException {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+
+  public void setAcceptNextAlert(boolean acceptNextAlert) {
+    this.acceptNextAlert = acceptNextAlert;
+  }
+
+  public boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  public boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+
 }

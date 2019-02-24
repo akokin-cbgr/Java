@@ -1,7 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.openqa.selenium.Alert;
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertTrue;
 
 
@@ -13,13 +13,10 @@ public class ContactDeletionTest extends TestBase {
     app.getNavigationHelper().gotoContactPage();
     app.getContactHelper().selectContact();
     app.getContactHelper().deleteSelectedContact();
-    //setAcceptNextAlert(true);
-    
-    Thread.sleep(3000);
-    Alert alert = driver.switchTo().alert();
-    alert.accept();
-    Thread.sleep(40000);
-    //app.getContactHelper().returnToHome();
+    app.setAcceptNextAlert(true);
+    assertTrue(app.closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+    //Thread.sleep(40000);                                                                                              //Задержка в милисекундах
+    app.getContactHelper().returnToHome();
 
 
   }

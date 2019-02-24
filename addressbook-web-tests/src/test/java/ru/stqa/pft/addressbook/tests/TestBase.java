@@ -17,7 +17,6 @@ public class TestBase {
   }
 
   protected final ApplicationManager app = new ApplicationManager();
-  private boolean acceptNextAlert;
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
@@ -29,41 +28,5 @@ public class TestBase {
     app.stop();
   }
 
-  public boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  public boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  public void setAcceptNextAlert(boolean acceptNextAlert) {
-    this.acceptNextAlert = acceptNextAlert;
-  }
-
-  public String closeAlertAndGetItsText() throws InterruptedException  {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
-  }
 
 }
