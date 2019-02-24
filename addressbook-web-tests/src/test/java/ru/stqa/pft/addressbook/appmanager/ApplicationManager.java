@@ -1,7 +1,10 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
 //import org.openqa.selenium.chrome.ChromeDriver;                                                                        //Если надо запускать в браузере Chrome
 
 
@@ -10,32 +13,44 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.fail;
 
 public class ApplicationManager {
-  WebDriver driver;
+  private WebDriver driver;
 
 
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
-  private SessionHelper sessionHelper;
   private ContactHelper contactHelper;
 
 
-  String baseUrl;
-  boolean acceptNextAlert;
-  StringBuffer verificationErrors = new StringBuffer();
+  private boolean acceptNextAlert;
+  private StringBuffer verificationErrors = new StringBuffer();
+  private String browser;
+
+  public ApplicationManager(String browser) {
+
+    this.browser = browser;
+  }
 
   public void init() {
-    
-    //System.setProperty("webdriver.chrome.driver", "/Java_learn/chromedriver/chromedriver.exe");                       //Если надо запускать в браузере Chrome
-    System.setProperty("webdriver.firefox.driver", "/Java_learn/geckodriver/geckodriver.exe");                          //Если надо запускать в браузере FireFox
-    //driver = new ChromeDriver();                                                                                      //Если надо запускать в браузере Chrome
-    driver = new FirefoxDriver();
+    if (browser.equals(BrowserType.FIREFOX)) {
+      driver = new FirefoxDriver();
+    } else if (browser.equals(BrowserType.CHROME)) {
+      driver = new ChromeDriver();
+    } else if (browser.equals(BrowserType.IE)){
+      driver = new InternetExplorerDriver();
+    }
 
-    baseUrl = "https://www.katalon.com/";
+
+    //System.setProperty("webdriver.chrome.driver", "/Java_learn/chromedriver/chromedriver.exe");                       //Если надо запускать в браузере Chrome
+    //System.setProperty("webdriver.firefox.driver", "/Java_learn/geckodriver/geckodriver.exe");                        //Если надо запускать в браузере FireFox
+    //System.setProperty("webdriver.ie.driver", "C:/Program Files/Internet Explorer/iexplore.exe");                     //Если надо запускать в браузере IE
+    //driver = new ChromeDriver();                                                                                      //Если надо запускать в браузере Chrome
+    //driver = new FirefoxDriver();
+
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
     contactHelper = new ContactHelper(driver);
-    sessionHelper = new SessionHelper(driver);
+    SessionHelper sessionHelper = new SessionHelper(driver);
     sessionHelper.login("admin", "secret");
   }
 
