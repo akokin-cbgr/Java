@@ -24,6 +24,7 @@ public class ApplicationManager {
   StringBuffer verificationErrors = new StringBuffer();
 
   public void init() {
+    
     //System.setProperty("webdriver.chrome.driver", "/Java_learn/chromedriver/chromedriver.exe");                       //Если надо запускать в браузере Chrome
     System.setProperty("webdriver.firefox.driver", "/Java_learn/geckodriver/geckodriver.exe");                          //Если надо запускать в браузере FireFox
     //driver = new ChromeDriver();                                                                                      //Если надо запускать в браузере Chrome
