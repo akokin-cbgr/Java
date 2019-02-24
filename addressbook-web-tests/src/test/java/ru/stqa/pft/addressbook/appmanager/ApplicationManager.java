@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.stqa.pft.addressbook.tests.TestBase;
 //import org.openqa.selenium.chrome.ChromeDriver;                                                                        //Если надо запускать в браузере Chrome
 
 
@@ -18,7 +17,6 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
   private SessionHelper sessionHelper;
   private ContactHelper contactHelper;
-  private TestBase testBase;
 
 
   String baseUrl;
@@ -37,7 +35,6 @@ public class ApplicationManager {
     navigationHelper = new NavigationHelper(driver);
     contactHelper = new ContactHelper(driver);
     sessionHelper = new SessionHelper(driver);
-    testBase = new TestBase(driver);
     sessionHelper.login("admin", "secret");
   }
 
