@@ -46,7 +46,7 @@ public class ApplicationManager {
     //driver = new ChromeDriver();                                                                                      //Если надо запускать в браузере Chrome
     //driver = new FirefoxDriver();
 
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
     contactHelper = new ContactHelper(driver);
@@ -93,23 +93,6 @@ public class ApplicationManager {
     this.acceptNextAlert = acceptNextAlert;
   }
 
-  public boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  public boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
 
 
 }
