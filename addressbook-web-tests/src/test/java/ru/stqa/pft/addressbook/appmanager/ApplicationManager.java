@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
-//import org.openqa.selenium.chrome.ChromeDriver;                                                                        //Если надо запускать в браузере Chrome
 
 
 import java.util.concurrent.TimeUnit;
@@ -39,12 +38,6 @@ public class ApplicationManager {
       driver = new InternetExplorerDriver();
     }
 
-
-    //System.setProperty("webdriver.chrome.driver", "/Java_learn/chromedriver/chromedriver.exe");                       //Если надо запускать в браузере Chrome
-    //System.setProperty("webdriver.firefox.driver", "/Java_learn/geckodriver/geckodriver.exe");                        //Если надо запускать в браузере FireFox
-    //System.setProperty("webdriver.ie.driver", "C:/Program Files/Internet Explorer/iexplore.exe");                     //Если надо запускать в браузере IE
-    //driver = new ChromeDriver();                                                                                      //Если надо запускать в браузере Chrome
-    //driver = new FirefoxDriver();
 
     driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     groupHelper = new GroupHelper(driver);
