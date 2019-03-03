@@ -2,8 +2,13 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -49,8 +54,8 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@value='Delete']"));
   }
 
-  public void selectContact() {
-    click(By.name("selected[]"));
+  public void selectContact(int index) {
+    driver.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void initContactModification() {
@@ -75,5 +80,28 @@ public class ContactHelper extends HelperBase {
   }
 
 
+  public List<ContactData> getContactList() {
+    List<ContactData> groups = new ArrayList<>();
 
+    WebElement table = driver.findElement(By.id("maintable"));
+    List<WebElement> allRows = table.findElements(By.tagName("tr"));
+    for (WebElement row : allRows) {
+      List<WebElement> cells = row.findElements(By.xpath("td"));
+      for (WebElement cell : cells) {
+        // And so on
+      }
+    }
+
+
+
+
+    List<WebElement> elements = driver.findElements(By.cssSelector("td.center"));
+    for (WebElement element: elements) {
+      String name = element.findElement(By.tagName("input")).getAttribute("title");
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+      ContactData group = new ContactData(id,"test_name","test_middle","test_last","Москва","test@test.com", null, "21","January","1986");
+      groups.add(group);
+    }
+    return groups;
+  }
 }
