@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
     type(By.name("email"), contactData.getEmail());
-    if (creation){
+    if (creation) {
       typeSelect(By.name("new_group"), contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
@@ -82,26 +81,19 @@ public class ContactHelper extends HelperBase {
 
   public List<ContactData> getContactList() {
     List<ContactData> groups = new ArrayList<>();
-
-    WebElement table = driver.findElement(By.id("maintable"));
-    List<WebElement> allRows = table.findElements(By.tagName("tr"));
-    for (WebElement row : allRows) {
-      List<WebElement> cells = row.findElements(By.xpath("td"));
-      for (WebElement cell : cells) {
-        // And so on
-      }
+    List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
+    List<WebElement> elementsLastName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[2]"));
+    List<WebElement> elementsFirstName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[3]"));
+    int n = 0;
+      for (WebElement elementFirstName : elementsFirstName) {
+        String firstNameText = elementFirstName.getText();
+        String lastNameText = elementsLastName.get(n).getText();
+        int id = Integer.parseInt(elementsId.get(n).findElement(By.tagName("input")).getAttribute("value"));
+        ContactData group = new ContactData(id,firstNameText, "test_middle", lastNameText, "Москва", "test@test.com", null, "21", "January", "1986");
+        groups.add(group);
+        n++;
     }
 
-
-
-
-    List<WebElement> elements = driver.findElements(By.cssSelector("td.center"));
-    for (WebElement element: elements) {
-      String name = element.findElement(By.tagName("input")).getAttribute("title");
-      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
-      ContactData group = new ContactData(id,"test_name","test_middle","test_last","Москва","test@test.com", null, "21","January","1986");
-      groups.add(group);
-    }
     return groups;
   }
 }
