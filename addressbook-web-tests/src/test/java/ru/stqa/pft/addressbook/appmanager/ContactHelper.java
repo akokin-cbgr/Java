@@ -57,13 +57,15 @@ public class ContactHelper extends HelperBase {
     driver.findElements(By.name("selected[]")).get(index).click();
   }
 
-  public void initContactModification() {
+  public void initContactModification(int index) {
     //click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='test@test.com'])[1]/following::img[2]"));
-    click(By.xpath("//img[@alt='Edit']"));
+    //click(By.xpath("//img[@alt='Edit']"));
+    List<WebElement> elementsEdit = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[8]"));
+    elementsEdit.get(index).click();
   }
 
   public void submitContactModification() {
-    click(By.xpath("//div[@id='content']/form/input[22]"));
+    click(By.cssSelector("input:nth-child(86)"));
   }
 
   public void createContact(ContactData contact) {
@@ -80,7 +82,7 @@ public class ContactHelper extends HelperBase {
 
 
   public List<ContactData> getContactList() {
-    List<ContactData> groups = new ArrayList<>();
+    List<ContactData> contacts = new ArrayList<>();
     List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
     List<WebElement> elementsLastName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[2]"));
     List<WebElement> elementsFirstName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[3]"));
@@ -89,11 +91,11 @@ public class ContactHelper extends HelperBase {
         String firstNameText = elementFirstName.getText();
         String lastNameText = elementsLastName.get(n).getText();
         int id = Integer.parseInt(elementsId.get(n).findElement(By.tagName("input")).getAttribute("value"));
-        ContactData group = new ContactData(id,firstNameText, "test_middle", lastNameText, "Москва", "test@test.com", null, "21", "January", "1986");
-        groups.add(group);
+        ContactData contact = new ContactData(id,firstNameText, "test_middle", lastNameText, "Москва", "test@test.com", null, "21", "January", "1986");
+        contacts.add(contact);
         n++;
     }
 
-    return groups;
+    return contacts;
   }
 }
