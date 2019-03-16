@@ -9,7 +9,11 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.testng.Assert.assertTrue;
+import static ru.stqa.pft.addressbook.tests.TestBase.app;
+
 public class ContactHelper extends HelperBase {
+
 
 
   public ContactHelper(WebDriver driver) {
@@ -76,6 +80,25 @@ public class ContactHelper extends HelperBase {
 
   }
 
+  public void modifycationContact(int index, ContactData contact) {
+    selectContact(index);
+    initContactModification(index);
+    fillContactForm(contact, false);
+    submitContactModification();
+    returnToHomePage();
+  }
+
+
+  public void deletionContact(int index) throws InterruptedException {
+    selectContact(index);
+    deleteSelectedContact();
+    app.setAcceptNextAlert(true);
+    assertTrue(app.closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+    //Thread.sleep(40000);                                                                                              //Задержка в милисекундах
+    returnToHome();
+  }
+
+
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
@@ -87,13 +110,13 @@ public class ContactHelper extends HelperBase {
     List<WebElement> elementsLastName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[2]"));
     List<WebElement> elementsFirstName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[3]"));
     int n = 0;
-      for (WebElement elementFirstName : elementsFirstName) {
-        String firstNameText = elementFirstName.getText();
-        String lastNameText = elementsLastName.get(n).getText();
-        int id = Integer.parseInt(elementsId.get(n).findElement(By.tagName("input")).getAttribute("value"));
-        ContactData contact = new ContactData(id,firstNameText, "test_middle", lastNameText, "Москва", "test@test.com", null, "21", "January", "1986");
-        contacts.add(contact);
-        n++;
+    for (WebElement elementFirstName : elementsFirstName) {
+      String firstNameText = elementFirstName.getText();
+      String lastNameText = elementsLastName.get(n).getText();
+      int id = Integer.parseInt(elementsId.get(n).findElement(By.tagName("input")).getAttribute("value"));
+      ContactData contact = new ContactData(id, firstNameText, "test_middle", lastNameText, "Москва", "test@test.com", null, "21", "January", "1986");
+      contacts.add(contact);
+      n++;
     }
 
     return contacts;
