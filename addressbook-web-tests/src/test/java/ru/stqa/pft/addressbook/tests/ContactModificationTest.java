@@ -10,7 +10,7 @@ import java.util.List;
 public class ContactModificationTest extends TestBase {
 
   @Test
-  public void testContactModificationTests() throws Exception {
+  public void testContactModificationTests(){
     app.getNavigationHelper().gotoContactPage();
     if (!app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData("test_name", "test_middle", "test_last", "Москва", "test@test.com", null, "21", "January", "1986"));
