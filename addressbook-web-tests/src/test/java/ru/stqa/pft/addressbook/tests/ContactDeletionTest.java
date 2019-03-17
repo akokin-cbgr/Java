@@ -13,18 +13,19 @@ public class ContactDeletionTest extends TestBase {
 
   @BeforeTest
   public void ensurePrecondition (){
-    app.getNavigationHelper().gotoContactPage();
-    if (!app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().createContact(new ContactData("test_name", "test_middle", "test_last", "Москва", "test@test.com", null, "21", "January", "1986"));
+    app.goTo().сontactPage();
+    if (app.сontact().list().size() == 0) {
+      app.сontact().create(new ContactData()
+              .withFirstname("test_name").withMiddlename("test_middle").withLastname("test_last").withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986"));
     }
   }
 
   @Test
   public void testContactDeletionTests() throws Exception {
-    List<ContactData> before = app.getContactHelper().getContactList();
+    List<ContactData> before = app.сontact().list();
     int index = before.size() -1;
-    app.getContactHelper().deletionContact(index);
-    List<ContactData> after = app.getContactHelper().getContactList();
+    app.сontact().deletionContact(index);
+    List<ContactData> after = app.сontact().list();
     Assert.assertEquals(after.size(), index);
 
     before.remove(index);

@@ -72,7 +72,7 @@ public class ContactHelper extends HelperBase {
     click(By.cssSelector("input:nth-child(86)"));
   }
 
-  public void createContact(ContactData contact) {
+  public void create(ContactData contact) {
     initContactCreation();
     fillContactForm(contact, true);
     submitContactCreation();
@@ -80,7 +80,7 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void modifycationContact(int index, ContactData contact) {
+  public void modify(int index, ContactData contact) {
     selectContact(index);
     initContactModification(index);
     fillContactForm(contact, false);
@@ -104,7 +104,7 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<>();
     List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
     List<WebElement> elementsLastName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[2]"));
@@ -114,7 +114,7 @@ public class ContactHelper extends HelperBase {
       String firstNameText = elementFirstName.getText();
       String lastNameText = elementsLastName.get(n).getText();
       int id = Integer.parseInt(elementsId.get(n).findElement(By.tagName("input")).getAttribute("value"));
-      ContactData contact = new ContactData(id, firstNameText, "test_middle", lastNameText, "Москва", "test@test.com", null, "21", "January", "1986");
+      ContactData contact = new ContactData().withId(id).withFirstname(firstNameText).withMiddlename("test_middle").withLastname(lastNameText).withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
       contacts.add(contact);
       n++;
     }

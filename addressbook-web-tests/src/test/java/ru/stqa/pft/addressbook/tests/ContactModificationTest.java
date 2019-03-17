@@ -12,19 +12,21 @@ public class ContactModificationTest extends TestBase {
 
   @BeforeTest
   public void ensurePreconditions(){
-    app.getNavigationHelper().gotoContactPage();
-    if (!app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().createContact(new ContactData("test_name", "test_middle", "test_last", "Москва", "test@test.com", null, "21", "January", "1986"));
+    app.goTo().сontactPage();
+    if (app.сontact().list().size() == 0) {
+      app.сontact().create(new ContactData()
+                      .withFirstname("test_name").withMiddlename("test_middle").withLastname("test_last").withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986"));
     }
   }
 
   @Test
   public void testContactModificationTests(){
-    List<ContactData> before = app.getContactHelper().getContactList();
+    List<ContactData> before = app.сontact().list();
     int index = before.size() - 1;
-    ContactData contact = new ContactData(before.get(index).getId(), "test_name4", "test_middle4", "test_last4", "Москва", "test@test.com", null, "26", "January", "1987");
-    app.getContactHelper().modifycationContact(index, contact);
-    List<ContactData> after = app.getContactHelper().getContactList();
+    ContactData contact = new ContactData()
+            .withId(before.get(index).getId()).withFirstname("test_name4").withMiddlename("test_middle4").withLastname("test_last4").withAddress("Москва").withEmail("test@test.com").withBday("26").withBmonth("January").withByear("1987");
+    app.сontact().modify(index, contact);
+    List<ContactData> after = app.сontact().list();
     Assert.assertEquals(after.size(), before.size());
 
     before.remove(index);
