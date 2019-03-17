@@ -1,5 +1,7 @@
 package ru.stqa.pft.addressbook.model;
 
+import java.util.Objects;
+
 public class GroupData {
   private int id = Integer.MAX_VALUE;
   private String name;
@@ -14,7 +16,7 @@ public class GroupData {
 
     GroupData groupData = (GroupData) o;
 
-    return name != null ? name.equals(groupData.name) : groupData.name == null;
+    return Objects.equals(name, groupData.name);
   }
 
   @Override
