@@ -1,7 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ContactModificationTest extends TestBase {
 
-  @BeforeTest
+  @BeforeMethod
   public void ensurePreconditions(){
     app.goTo().сontactPage();
     if (app.сontact().list().size() == 0) {
