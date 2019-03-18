@@ -7,7 +7,9 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
 import static ru.stqa.pft.addressbook.tests.TestBase.app;
@@ -61,11 +63,18 @@ public class ContactHelper extends HelperBase {
     driver.findElements(By.name("selected[]")).get(index).click();
   }
 
-  public void initContactModification(int index) {
+  private void selectContactById(int id) {
+    driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
+  }
+
+  public void initContactModification(int id) {
     //click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='test@test.com'])[1]/following::img[2]"));
     //click(By.xpath("//img[@alt='Edit']"));
-    List<WebElement> elementsEdit = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[8]"));
-    elementsEdit.get(index).click();
+    //List<WebElement> elementsEdit = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[8]"));
+    //List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
+    //driver.findElement(By.xpath("//table[@id='maintable']/tbody/tr/td/a[contains(@href, '" + id + "')]/img")).click();
+    click(By.xpath("//table[@id='maintable']/tbody/tr/td/a[contains(@href, 'edit.php?id="+ id +"')]/img"));
+
   }
 
   public void submitContactModification() {
@@ -80,9 +89,9 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void modify(int index, ContactData contact) {
-    selectContact(index);
-    initContactModification(index);
+  public void modify(ContactData contact) {
+    selectContactById(contact.getId());
+    initContactModification(contact.getId());
     fillContactForm(contact, false);
     submitContactModification();
     returnToHomePage();
@@ -96,6 +105,16 @@ public class ContactHelper extends HelperBase {
     assertTrue(app.closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
     //Thread.sleep(40000);                                                                                              //Задержка в милисекундах
     returnToHome();
+  }
+
+  public void deletionContact(ContactData contact) throws InterruptedException {
+    selectContactById(contact.getId());
+    deleteSelectedContact();
+    app.setAcceptNextAlert(true);
+    assertTrue(app.closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+    //Thread.sleep(40000);                                                                                              //Задержка в милисекундах
+    returnToHome();
+
   }
 
 
@@ -118,7 +137,23 @@ public class ContactHelper extends HelperBase {
       contacts.add(contact);
       n++;
     }
+    return contacts;
+  }
 
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<>();
+    List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
+    List<WebElement> elementsLastName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[2]"));
+    List<WebElement> elementsFirstName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[3]"));
+    int n = 0;
+    for (WebElement elementFirstName : elementsFirstName) {
+      String firstNameText = elementFirstName.getText();
+      String lastNameText = elementsLastName.get(n).getText();
+      int id = Integer.parseInt(elementsId.get(n).findElement(By.tagName("input")).getAttribute("value"));
+      ContactData contact = new ContactData().withId(id).withFirstname(firstNameText).withMiddlename("test_middle").withLastname(lastNameText).withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
+      contacts.add(contact);
+      n++;
+    }
     return contacts;
   }
 }
