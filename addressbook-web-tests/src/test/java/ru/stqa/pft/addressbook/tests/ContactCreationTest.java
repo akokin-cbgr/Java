@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class ContactCreationTest extends TestBase {
 
-  @Test
+  @Test()
   public void testContactCreationTests() throws Exception {
     app.goTo().сontactPage();
     ContactData contact = new ContactData().withFirstname("test_name").withMiddlename("test_middle").withLastname("test_last").withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");

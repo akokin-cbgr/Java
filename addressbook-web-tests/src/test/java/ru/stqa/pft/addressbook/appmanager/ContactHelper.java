@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -59,10 +58,6 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@value='Delete']"));
   }
 
-  public void selectContact(int index) {
-    driver.findElements(By.name("selected[]")).get(index).click();
-  }
-
   private void selectContactById(int id) {
     driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
@@ -97,16 +92,6 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-
-  public void deletionContact(int index) throws InterruptedException {
-    selectContact(index);
-    deleteSelectedContact();
-    app.setAcceptNextAlert(true);
-    assertTrue(app.closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
-    //Thread.sleep(40000);                                                                                              //Задержка в милисекундах
-    returnToHome();
-  }
-
   public void deletionContact(ContactData contact) throws InterruptedException {
     selectContactById(contact.getId());
     deleteSelectedContact();
@@ -117,27 +102,12 @@ public class ContactHelper extends HelperBase {
 
   }
 
-
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
 
-
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<>();
-    List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
-    List<WebElement> elementsLastName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[2]"));
-    List<WebElement> elementsFirstName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[3]"));
-    int n = 0;
-    for (WebElement elementFirstName : elementsFirstName) {
-      String firstNameText = elementFirstName.getText();
-      String lastNameText = elementsLastName.get(n).getText();
-      int id = Integer.parseInt(elementsId.get(n).findElement(By.tagName("input")).getAttribute("value"));
-      ContactData contact = new ContactData().withId(id).withFirstname(firstNameText).withMiddlename("test_middle").withLastname(lastNameText).withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
-      contacts.add(contact);
-      n++;
-    }
-    return contacts;
+  public int getContactCount() {
+    return driver.findElements(By.name("selected[]")).size();
   }
 
   public Set<ContactData> all() {

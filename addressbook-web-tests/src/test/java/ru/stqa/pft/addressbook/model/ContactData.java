@@ -19,10 +19,6 @@ public class ContactData {
     return this;
   }
 
-  public void setId(int id) {
-    this.id = id;
-  }
-
   public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
     return this;
@@ -36,7 +32,6 @@ public class ContactData {
   public ContactData withLastname(String lastname) {
     this.lastname = lastname;
     return this;
-
   }
 
   public ContactData withAddress(String address) {
@@ -48,13 +43,11 @@ public class ContactData {
   public ContactData withEmail(String email) {
     this.email = email;
     return this;
-
   }
 
   public ContactData withBday(String bday) {
     this.bday = bday;
     return this;
-
   }
 
   public ContactData withBmonth(String bmonth) {
@@ -66,14 +59,8 @@ public class ContactData {
   public ContactData withByear(String byear) {
     this.byear = byear;
     return this;
-
   }
 
-  public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-
-  }
 
   public int getId() {
     return id;
