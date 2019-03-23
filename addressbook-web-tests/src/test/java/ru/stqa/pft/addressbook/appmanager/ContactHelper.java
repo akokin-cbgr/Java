@@ -82,6 +82,7 @@ public class ContactHelper extends HelperBase {
     initContactCreation();
     fillContactForm(contact, true);
     submitContactCreation();
+    contactCache = null;
     returnToHomePage();
 
   }
@@ -91,6 +92,7 @@ public class ContactHelper extends HelperBase {
     initContactModification(contact.getId());
     fillContactForm(contact, false);
     submitContactModification();
+    contactCache = null;
     returnToHomePage();
   }
 
@@ -99,6 +101,7 @@ public class ContactHelper extends HelperBase {
     deleteSelectedContact();
     app.setAcceptNextAlert(true);
     assertTrue(app.closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+    contactCache = null;
     //Thread.sleep(40000);                                                                                              //Задержка в милисекундах
     returnToHome();
 
@@ -112,8 +115,13 @@ public class ContactHelper extends HelperBase {
     return driver.findElements(By.name("selected[]")).size();
   }
 
+  private Contacts contactCache = null;
+
   public Contacts all() {
-    Contacts contacts = new Contacts();
+    if (contactCache != null){
+      return new Contacts(contactCache);
+    }
+    contactCache = new Contacts();
     List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
     List<WebElement> elementsLastName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[2]"));
     List<WebElement> elementsFirstName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[3]"));
@@ -123,9 +131,9 @@ public class ContactHelper extends HelperBase {
       String lastNameText = elementsLastName.get(n).getText();
       int id = Integer.parseInt(elementsId.get(n).findElement(By.tagName("input")).getAttribute("value"));
       ContactData contact = new ContactData().withId(id).withFirstname(firstNameText).withMiddlename("test_middle").withLastname(lastNameText).withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
-      contacts.add(contact);
+      contactCache.add(contact);
       n++;
     }
-    return contacts;
+    return new Contacts(contactCache);
   }
 }
