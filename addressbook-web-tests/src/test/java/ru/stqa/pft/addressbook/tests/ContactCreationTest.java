@@ -16,11 +16,21 @@ public class ContactCreationTest extends TestBase {
     ContactData contact = new ContactData().withFirstname("test_name").withMiddlename("test_middle").withLastname("test_last").withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
     Contacts before = app.сontact().all();
     app.сontact().create(contact);
+    assertEquals(app.сontact().count(),before.size() + 1);
     Contacts after = app.сontact().all();
-    assertEquals(after.size(),before.size() + 1);
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+  }
 
+  @Test()
+  public void testBadContactCreationTests() throws Exception {
+    app.goTo().сontactPage();
+    ContactData contact = new ContactData().withFirstname("test_name'").withMiddlename("test_middle").withLastname("test_last").withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
+    Contacts before = app.сontact().all();
+    app.сontact().create(contact);
+    assertEquals(app.сontact().count(),before.size());
+    Contacts after = app.сontact().all();
+    assertThat(after, equalTo(before));
   }
 
 }
