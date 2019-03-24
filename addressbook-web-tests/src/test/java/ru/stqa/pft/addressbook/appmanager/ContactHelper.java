@@ -75,6 +75,17 @@ public class ContactHelper extends HelperBase {
 
   }
 
+  public void initContactViewById(int id) {
+    //click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='test@test.com'])[1]/following::img[2]"));
+    //click(By.xpath("//img[@alt='Edit']"));
+    //List<WebElement> elementsEdit = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[8]"));
+    //List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
+    //driver.findElement(By.xpath("//table[@id='maintable']/tbody/tr/td/a[contains(@href, '" + id + "')]/img")).click();
+    //click(By.xpath("//table[@id='maintable']/tbody/tr/td/a[contains(@href, 'edit.php?id="+ id +"')]/img"));
+    click(By.xpath("//a[contains(@href, 'view.php?id="+ id +"')]/img"));
+
+  }
+
   public void submitContactModification() {
     click(By.cssSelector("input:nth-child(86)"));
   }
@@ -164,6 +175,13 @@ public class ContactHelper extends HelperBase {
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
             .withAddress(address).withHomePhone(cleaned(homePhone)).withMobilePhone(cleaned(mobilePhone)).withWorkPhone(cleaned(workPhone))
             .withEmail(email).withEmail2(email2).withEmail3(email3);
+  }
+
+  public ContactData infoFromViewFrom(ContactData contact) {
+    initContactViewById(contact.getId());
+    String allNames = driver.findElement(By.xpath("//*[@id=\"content\"]/b")).getText();
+    driver.navigate().back();
+    return new ContactData().withId(contact.getId()).withAllNames(allNames);
   }
 
 }

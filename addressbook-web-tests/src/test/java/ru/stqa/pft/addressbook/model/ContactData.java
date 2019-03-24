@@ -6,15 +6,14 @@ public class ContactData {
   private String firstname;
   private String middlename;
   private String lastname;
+  private String allNames;
   private String address;
   private String homePhone;
   private String mobilePhone;
   private String workPhone;
   private String email;
   private String email2;
-
   private String email3;
-
   private String bday;
   private String bmonth;
   private String byear;
@@ -27,6 +26,11 @@ public class ContactData {
 
   public ContactData withAllPhones(String allPhones) {
     this.allPhones = allPhones;
+    return this;
+  }
+
+  public ContactData withAllNames(String allNames) {
+    this.allNames = allNames;
     return this;
   }
 
@@ -114,6 +118,10 @@ public class ContactData {
 
   public String getAllPhones() {
     return allPhones;
+  }
+
+  public String getAllNames() {
+    return allNames;
   }
 
   public String getLastname() {
