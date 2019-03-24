@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.appmanager.ContactHelper;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.Arrays;
@@ -28,7 +27,6 @@ public class ContactEmailTest extends TestBase {
     app.goTo().сontactPage();
     ContactData contact = app.сontact().all().iterator().next();
     ContactData contactInfoFromEditForm = app.сontact().infoFromEditFrom(contact);
-    //assertThat(contact, equalTo(contactInfoFromEditForm));
     String s = mergeEmail(contactInfoFromEditForm);
     assertThat(contact.getEmail(), equalTo(s));
   }
