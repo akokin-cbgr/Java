@@ -27,9 +27,10 @@ public class ContactViewTest extends TestBase {
   public void testContactView() throws Exception {
     app.goTo().сontactPage();
     ContactData contact = app.сontact().all().iterator().next();
+    ContactData contactInfoFromEditForm = app.сontact().infoFromEditFrom(contact);
     ContactData contactInfoFromViewForm = app.сontact().infoFromViewFrom(contact);
-    assertThat(mergeNames(contact), equalTo(contactInfoFromViewForm.getAllNames()));
-    
+    assertThat(mergeNames(contactInfoFromEditForm), equalTo(contactInfoFromViewForm.getAllNames()));
+
   }
 
   private static String mergeNames(ContactData contact) {

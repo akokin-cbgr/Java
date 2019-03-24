@@ -180,6 +180,7 @@ public class ContactHelper extends HelperBase {
   public ContactData infoFromViewFrom(ContactData contact) {
     initContactViewById(contact.getId());
     String allNames = driver.findElement(By.xpath("//*[@id=\"content\"]/b")).getText();
+    //String allAddress = driver.findElement(By.xpath("//*[@id=\"content\"]/text()[4]")).getText();
     driver.navigate().back();
     return new ContactData().withId(contact.getId()).withAllNames(allNames);
   }
