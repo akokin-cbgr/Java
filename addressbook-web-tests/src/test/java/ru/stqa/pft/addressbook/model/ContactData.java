@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.model;
 
-import java.util.Objects;
 
 public class ContactData {
   private int id = Integer.MAX_VALUE;
@@ -8,14 +7,26 @@ public class ContactData {
   private String middlename;
   private String lastname;
   private String address;
+  private String homePhone;
+  private String mobilePhone;
+  private String workPhone;
   private String email;
+  private String email2;
+
+  private String email3;
+
   private String bday;
   private String bmonth;
   private String byear;
   private String group;
-
+  private String allPhones;
   public ContactData withId(int id) {
     this.id = id;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
     return this;
   }
 
@@ -40,8 +51,39 @@ public class ContactData {
 
   }
 
+
+  public ContactData withHomePhone(String home) {
+    this.homePhone = home;
+    return this;
+
+  }
+
+
+  public ContactData withMobilePhone(String mobile) {
+    this.mobilePhone = mobile;
+    return this;
+
+  }
+
+
+  public ContactData withWorkPhone(String work) {
+    this.workPhone = work;
+    return this;
+
+  }
+
   public ContactData withEmail(String email) {
     this.email = email;
+    return this;
+  }
+
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
     return this;
   }
 
@@ -70,6 +112,10 @@ public class ContactData {
     return firstname;
   }
 
+  public String getAllPhones() {
+    return allPhones;
+  }
+
   public String getLastname() {
     return lastname;
   }
@@ -84,6 +130,26 @@ public class ContactData {
 
   public String getEmail() {
     return email;
+  }
+
+  public String getEmail2() {
+    return email2;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
+
+  public String getHomePhone() {
+    return homePhone;
+  }
+
+  public String getMobilePhone() {
+    return mobilePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
   }
 
   public String getBday() {
@@ -110,8 +176,8 @@ public class ContactData {
     ContactData that = (ContactData) o;
 
     if (id != that.id) return false;
-    if (!Objects.equals(firstname, that.firstname)) return false;
-    return Objects.equals(lastname, that.lastname);
+    if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+    return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
   }
 
   @Override

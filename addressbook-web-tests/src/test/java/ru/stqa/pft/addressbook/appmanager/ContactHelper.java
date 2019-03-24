@@ -37,6 +37,9 @@ public class ContactHelper extends HelperBase {
     type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
+    type(By.name("home"), contactData.getHomePhone());
+    type(By.name("mobile"), contactData.getMobilePhone());
+    type(By.name("work"), contactData.getWorkPhone());
     type(By.name("email"), contactData.getEmail());
     if (creation) {
       typeSelect(By.name("new_group"), contactData.getGroup());
@@ -61,7 +64,7 @@ public class ContactHelper extends HelperBase {
     driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
-  public void initContactModification(int id) {
+  public void initContactModificationById(int id) {
     //click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='test@test.com'])[1]/following::img[2]"));
     //click(By.xpath("//img[@alt='Edit']"));
     //List<WebElement> elementsEdit = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[8]"));
@@ -87,7 +90,7 @@ public class ContactHelper extends HelperBase {
 
   public void modify(ContactData contact) {
     selectContactById(contact.getId());
-    initContactModification(contact.getId());
+    initContactModificationById(contact.getId());
     fillContactForm(contact, false);
     submitContactModification();
     contactCache = null;
@@ -113,6 +116,10 @@ public class ContactHelper extends HelperBase {
     return driver.findElements(By.name("selected[]")).size();
   }
 
+  public static String cleaned (String phone){
+    return phone.replaceAll("\\s","").replaceAll("[-()]","");
+  }
+
   private Contacts contactCache = null;
 
   public Contacts all() {
@@ -123,15 +130,40 @@ public class ContactHelper extends HelperBase {
     List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
     List<WebElement> elementsLastName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[2]"));
     List<WebElement> elementsFirstName = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[3]"));
+    List<WebElement> elementsAddress = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[4]"));
+    List<WebElement> elementsEmail = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[5]"));
+    List<WebElement> elementsAllPhone = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[6]"));
     int n = 0;
     for (WebElement elementFirstName : elementsFirstName) {
       String firstNameText = elementFirstName.getText();
       String lastNameText = elementsLastName.get(n).getText();
+      String addressText = elementsAddress.get(n).getText();
+      String emailText = elementsEmail.get(n).getText();
+      String allPhoneText = elementsAllPhone.get(n).getText();
       int id = Integer.parseInt(elementsId.get(n).findElement(By.tagName("input")).getAttribute("value"));
-      ContactData contact = new ContactData().withId(id).withFirstname(firstNameText).withMiddlename("test_middle").withLastname(lastNameText).withAddress("Москва").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
+      ContactData contact = new ContactData().withId(id).withFirstname(firstNameText).withLastname(lastNameText)
+              .withAddress(addressText).withAllPhones(allPhoneText).withEmail(emailText);
       contactCache.add(contact);
       n++;
     }
     return new Contacts(contactCache);
   }
+
+  public ContactData infoFromEditFrom(ContactData contact) {
+    initContactModificationById(contact.getId());
+    String firstname = driver.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = driver.findElement(By.name("lastname")).getAttribute("value");
+    String address = driver.findElement(By.name("address")).getAttribute("value");
+    String homePhone = driver.findElement(By.name("home")).getAttribute("value");
+    String mobilePhone = driver.findElement(By.name("mobile")).getAttribute("value");
+    String workPhone = driver.findElement(By.name("work")).getAttribute("value");
+    String email = driver.findElement(By.name("email")).getAttribute("value");
+    String email2 = driver.findElement(By.name("email2")).getAttribute("value");
+    String email3 = driver.findElement(By.name("email3")).getAttribute("value");
+    driver.navigate().back();
+    return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
+            .withAddress(address).withHomePhone(cleaned(homePhone)).withMobilePhone(cleaned(mobilePhone)).withWorkPhone(cleaned(workPhone))
+            .withEmail(email).withEmail2(email2).withEmail3(email3);
+  }
+
 }
