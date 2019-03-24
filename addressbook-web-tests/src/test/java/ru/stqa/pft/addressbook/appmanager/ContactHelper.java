@@ -166,6 +166,7 @@ public class ContactHelper extends HelperBase {
   public ContactData infoFromEditFrom(ContactData contact) {
     initContactModificationById(contact.getId());
     String firstname = driver.findElement(By.name("firstname")).getAttribute("value");
+    String middlename = driver.findElement(By.name("middlename")).getAttribute("value");
     String lastname = driver.findElement(By.name("lastname")).getAttribute("value");
     String address = driver.findElement(By.name("address")).getAttribute("value");
     String homePhone = driver.findElement(By.name("home")).getAttribute("value");
@@ -175,23 +176,27 @@ public class ContactHelper extends HelperBase {
     String email2 = driver.findElement(By.name("email2")).getAttribute("value");
     String email3 = driver.findElement(By.name("email3")).getAttribute("value");
     driver.navigate().back();
-    return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
+    return new ContactData().withId(contact.getId()).withFirstname(firstname).withMiddlename(middlename).withLastname(lastname)
             .withAddress(address).withHomePhone(cleaned(homePhone)).withMobilePhone(cleaned(mobilePhone)).withWorkPhone(cleaned(workPhone))
             .withEmail(email).withEmail2(email2).withEmail3(email3);
   }
 
   public ContactData infoFromViewFrom(ContactData contact) {
     initContactViewById(contact.getId());
-    //String allNames = driver.findElement(By.xpath("//*[@id=\"content\"]/b")).getText();
+//    String allNames = driver.findElement(By.xpath("//*[@id=\"content\"]/b")).getText();
     String allText = driver.findElement(By.xpath("//div[@id=\"content\"]")).getText();
     String[] split = allText.split("\n");
 //    String collect = Arrays.stream(split).filter((s) -> !s.equals("")).collect(Collectors.joining("\n"));
     String allNames = split[0];
-    String homePhone = allText.substring(allText.indexOf("H:"),allText.indexOf("\nW:")).trim();
-    String workPhone = allText.substring(allText.indexOf("W:")).trim();
+    String homePhone = allText.substring(allText.indexOf("H:"),allText.indexOf("\n",allText.indexOf("H:"))).trim();
+    String mobilePhone = "";
+    if (allText.contains("M:")){
+      mobilePhone = allText.substring(allText.indexOf("M:"),allText.indexOf("\nW:")).trim();
+    }
+    String workPhone = allText.substring(allText.indexOf("W:"),allText.indexOf("\n",allText.indexOf("W:"))).trim();
     String allAddress = allText.substring(allText.indexOf("\n"),allText.indexOf("H:")).trim();
     driver.navigate().back();
-    return new ContactData().withId(contact.getId()).withAllNames(allNames).withHomePhone(cleaned(homePhone)).withWorkPhone(cleaned(workPhone)).withAllAddress(allAddress);
+    return new ContactData().withId(contact.getId()).withAllNames(allNames).withHomePhone(cleaned(homePhone)).withMobilePhone(cleaned(mobilePhone)).withWorkPhone(cleaned(workPhone)).withAllAddress(allAddress);
   }
 
 }

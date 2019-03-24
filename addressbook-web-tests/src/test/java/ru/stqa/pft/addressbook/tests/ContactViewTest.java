@@ -29,16 +29,21 @@ public class ContactViewTest extends TestBase {
     ContactData contact = app.сontact().all().iterator().next();
     ContactData contactInfoFromEditForm = app.сontact().infoFromEditFrom(contact);
     ContactData contactInfoFromViewForm = app.сontact().infoFromViewFrom(contact);
+
+
     assertThat(mergeNames(contactInfoFromEditForm), equalTo(contactInfoFromViewForm.getAllNames()));
+
+
     String phonesFromEdit = mergePhones(contactInfoFromEditForm);
     String phonesFromView = mergePhones(contactInfoFromViewForm)
-            .replaceAll("null", "").replaceAll("H:","").replaceAll("W:","");
+            .replaceAll("null", "").replaceAll("H:","").replaceAll("W:","").replaceAll("M:","");
+
     assertThat(phonesFromEdit, equalTo(phonesFromView));
 
   }
 
   private static String mergeNames(ContactData contact) {
-    return contact.getFirstname() + " " + contact.getLastname();
+    return contact.getFirstname()+ " " + contact.getMiddlename()+ " " + contact.getLastname();
   }
 
   private static String mergePhones(ContactData contact) {
