@@ -7,7 +7,10 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.testng.Assert.assertTrue;
 import static ru.stqa.pft.addressbook.tests.TestBase.app;
@@ -179,8 +182,11 @@ public class ContactHelper extends HelperBase {
 
   public ContactData infoFromViewFrom(ContactData contact) {
     initContactViewById(contact.getId());
-    String allNames = driver.findElement(By.xpath("//*[@id=\"content\"]/b")).getText();
-    //String allAddress = driver.findElement(By.xpath("//*[@id=\"content\"]/text()[4]")).getText();
+    //String allNames = driver.findElement(By.xpath("//*[@id=\"content\"]/b")).getText();
+    String allAddress = driver.findElement(By.xpath("//div[@id=\"content\"]")).getText();
+    String[] split = allAddress.split("\n");
+    String collect = Arrays.stream(allAddress.split("\n")).filter((s) -> !s.equals("")).collect(Collectors.joining("\n"));
+    String allNames = split[0];
     driver.navigate().back();
     return new ContactData().withId(contact.getId()).withAllNames(allNames);
   }
