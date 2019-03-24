@@ -183,12 +183,15 @@ public class ContactHelper extends HelperBase {
   public ContactData infoFromViewFrom(ContactData contact) {
     initContactViewById(contact.getId());
     //String allNames = driver.findElement(By.xpath("//*[@id=\"content\"]/b")).getText();
-    String allAddress = driver.findElement(By.xpath("//div[@id=\"content\"]")).getText();
-    String[] split = allAddress.split("\n");
-    String collect = Arrays.stream(allAddress.split("\n")).filter((s) -> !s.equals("")).collect(Collectors.joining("\n"));
+    String allText = driver.findElement(By.xpath("//div[@id=\"content\"]")).getText();
+    String[] split = allText.split("\n");
+//    String collect = Arrays.stream(split).filter((s) -> !s.equals("")).collect(Collectors.joining("\n"));
     String allNames = split[0];
+    String homePhone = allText.substring(allText.indexOf("H:"),allText.indexOf("\nW:")).trim();
+    String workPhone = allText.substring(allText.indexOf("W:")).trim();
+    String allAddress = allText.substring(allText.indexOf("\n"),allText.indexOf("H:")).trim();
     driver.navigate().back();
-    return new ContactData().withId(contact.getId()).withAllNames(allNames);
+    return new ContactData().withId(contact.getId()).withAllNames(allNames).withHomePhone(cleaned(homePhone)).withWorkPhone(cleaned(workPhone)).withAllAddress(allAddress);
   }
 
 }

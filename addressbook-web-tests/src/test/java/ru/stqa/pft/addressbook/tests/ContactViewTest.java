@@ -30,10 +30,19 @@ public class ContactViewTest extends TestBase {
     ContactData contactInfoFromEditForm = app.сontact().infoFromEditFrom(contact);
     ContactData contactInfoFromViewForm = app.сontact().infoFromViewFrom(contact);
     assertThat(mergeNames(contactInfoFromEditForm), equalTo(contactInfoFromViewForm.getAllNames()));
+    String phonesFromEdit = mergePhones(contactInfoFromEditForm);
+    String phonesFromView = mergePhones(contactInfoFromViewForm)
+            .replaceAll("null", "").replaceAll("H:","").replaceAll("W:","");
+    assertThat(phonesFromEdit, equalTo(phonesFromView));
 
   }
 
   private static String mergeNames(ContactData contact) {
     return contact.getFirstname() + " " + contact.getLastname();
   }
+
+  private static String mergePhones(ContactData contact) {
+    return contact.getHomePhone() + contact.getMobilePhone() + contact.getWorkPhone();
+  }
+
 }
