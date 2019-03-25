@@ -76,12 +76,6 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initContactViewById(int id) {
-    //click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='test@test.com'])[1]/following::img[2]"));
-    //click(By.xpath("//img[@alt='Edit']"));
-    //List<WebElement> elementsEdit = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[8]"));
-    //List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
-    //driver.findElement(By.xpath("//table[@id='maintable']/tbody/tr/td/a[contains(@href, '" + id + "')]/img")).click();
-    //click(By.xpath("//table[@id='maintable']/tbody/tr/td/a[contains(@href, 'edit.php?id="+ id +"')]/img"));
     click(By.xpath("//a[contains(@href, 'view.php?id="+ id +"')]/img"));
 
   }
@@ -180,18 +174,34 @@ public class ContactHelper extends HelperBase {
 
   public ContactData infoFromViewFrom(ContactData contact) {
     initContactViewById(contact.getId());
-//    String allNames = driver.findElement(By.xpath("//*[@id=\"content\"]/b")).getText();
-    String allText = driver.findElement(By.xpath("//div[@id=\"content\"]")).getText();
-    String[] split = allText.split("\n");
+    String allNames = driver.findElement(By.xpath("//*[@id=\"content\"]/b")).getText().trim();
+    String allText = driver.findElement(By.xpath("//div[@id=\"content\"]")).getText().trim();
+//    String[] split = allText.split("\n");
 //    String collect = Arrays.stream(split).filter((s) -> !s.equals("")).collect(Collectors.joining("\n"));
-    String allNames = split[0];
-    String homePhone = allText.substring(allText.indexOf("H:"),allText.indexOf("\n",allText.indexOf("H:"))).trim();
+//    String allNames = split[0];
+    String homePhone = "";
+    String allAddress = "";
+    boolean flag = false;
+    if (allText.contains("H:")) {
+      homePhone = allText.substring(allText.indexOf("H:"),allText.indexOf("\n",allText.indexOf("H:"))).trim();
+      allAddress = allText.substring(allText.indexOf("\n"),allText.indexOf("H:")).trim();
+      flag = true;
+    }
     String mobilePhone = "";
     if (allText.contains("M:")){
-      mobilePhone = allText.substring(allText.indexOf("M:"),allText.indexOf("\nW:")).trim();
+      mobilePhone = allText.substring(allText.indexOf("M:"),allText.indexOf("\n",allText.indexOf("M:"))).trim();
+      if (!flag){
+        allAddress = allText.substring(allText.indexOf("\n"),allText.indexOf("M:")).trim();
+        flag = true;
+      }
     }
-    String workPhone = allText.substring(allText.indexOf("W:"),allText.indexOf("\n",allText.indexOf("W:"))).trim();
-    String allAddress = allText.substring(allText.indexOf("\n"),allText.indexOf("H:")).trim();
+    String workPhone = "";
+    if (allText.contains("W:")){
+      workPhone = allText.substring(allText.indexOf("W:"),allText.indexOf("\n",allText.indexOf("W:"))).trim();
+      if (!flag){
+        allAddress = allText.substring(allText.indexOf("\n"),allText.indexOf("W:")).trim();
+      }
+    }
     driver.navigate().back();
     return new ContactData().withId(contact.getId()).withAllNames(allNames).withHomePhone(cleaned(homePhone)).withMobilePhone(cleaned(mobilePhone)).withWorkPhone(cleaned(workPhone)).withAllAddress(allAddress);
   }

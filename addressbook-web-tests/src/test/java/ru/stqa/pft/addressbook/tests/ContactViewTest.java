@@ -26,15 +26,18 @@ public class ContactViewTest extends TestBase {
     ContactData contactInfoFromEditForm = app.сontact().infoFromEditFrom(contact);
     ContactData contactInfoFromViewForm = app.сontact().infoFromViewFrom(contact);
 
+    String allNamesFromEdit = mergeNames(contactInfoFromEditForm).replaceAll("\\s+"," ").trim();
+    String allNamesFromView = contactInfoFromViewForm.getAllNames().replaceAll("\\s+"," ").trim();
+    assertThat(allNamesFromEdit, equalTo(allNamesFromView));
 
-    assertThat(mergeNames(contactInfoFromEditForm), equalTo(contactInfoFromViewForm.getAllNames()));
 
-
-    String phonesFromEdit = mergePhones(contactInfoFromEditForm);
+    String phonesFromEdit = mergePhones(contactInfoFromEditForm).trim();
     String phonesFromView = mergePhones(contactInfoFromViewForm)
-            .replaceAll("null", "").replaceAll("H:","").replaceAll("W:","").replaceAll("M:","");
+            .replaceAll("null", "").replaceAll("H:","").replaceAll("W:","").replaceAll("M:","").trim();
 
     assertThat(phonesFromEdit, equalTo(phonesFromView));
+
+    assertThat(contactInfoFromEditForm.getAddress(), equalTo(contactInfoFromViewForm.getAddress()));
 
   }
 
