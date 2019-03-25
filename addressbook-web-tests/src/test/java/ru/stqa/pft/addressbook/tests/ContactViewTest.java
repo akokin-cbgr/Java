@@ -37,7 +37,9 @@ public class ContactViewTest extends TestBase {
 
     assertThat(phonesFromEdit, equalTo(phonesFromView));
 
-    assertThat(contactInfoFromEditForm.getAddress(), equalTo(contactInfoFromViewForm.getAddress()));
+    String addressFromEdit = contactInfoFromEditForm.getAddress().trim();
+    String addressFromView = contactInfoFromViewForm.getAllAddress().trim();
+    assertThat(addressFromEdit, equalTo(addressFromView));
 
   }
 
