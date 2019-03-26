@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
@@ -13,7 +14,6 @@ import static org.testng.Assert.assertTrue;
 import static ru.stqa.pft.addressbook.tests.TestBase.app;
 
 public class ContactHelper extends HelperBase {
-
 
 
   public ContactHelper(WebDriver driver) {
@@ -41,8 +41,12 @@ public class ContactHelper extends HelperBase {
     type(By.name("mobile"), contactData.getMobilePhone());
     type(By.name("work"), contactData.getWorkPhone());
     type(By.name("email"), contactData.getEmail());
+    attache(By.name("photo"), contactData.getPhoto());
     if (creation) {
-      typeSelect(By.name("new_group"), contactData.getGroup());
+      if (contactData.getGroup() != null) {
+//        typeSelect(By.name("new_group"), contactData.getGroup());
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -71,12 +75,12 @@ public class ContactHelper extends HelperBase {
     //List<WebElement> elementsId = driver.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[1]"));
     //driver.findElement(By.xpath("//table[@id='maintable']/tbody/tr/td/a[contains(@href, '" + id + "')]/img")).click();
     //click(By.xpath("//table[@id='maintable']/tbody/tr/td/a[contains(@href, 'edit.php?id="+ id +"')]/img"));
-    click(By.xpath("//a[contains(@href, 'edit.php?id="+ id +"')]/img"));
+    click(By.xpath("//a[contains(@href, 'edit.php?id=" + id + "')]/img"));
 
   }
 
   public void initContactViewById(int id) {
-    click(By.xpath("//a[contains(@href, 'view.php?id="+ id +"')]/img"));
+    click(By.xpath("//a[contains(@href, 'view.php?id=" + id + "')]/img"));
 
   }
 
@@ -121,14 +125,14 @@ public class ContactHelper extends HelperBase {
     return driver.findElements(By.name("selected[]")).size();
   }
 
-  public static String cleaned (String phone){
-    return phone.replaceAll("\\s","").replaceAll("[-()]","");
+  public static String cleaned(String phone) {
+    return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
   }
 
   private Contacts contactCache = null;
 
   public Contacts all() {
-    if (contactCache != null){
+    if (contactCache != null) {
       return new Contacts(contactCache);
     }
     contactCache = new Contacts();
@@ -183,23 +187,23 @@ public class ContactHelper extends HelperBase {
     String allAddress = "";
     boolean flag = false;
     if (allText.contains("H:")) {
-      homePhone = allText.substring(allText.indexOf("H:"),allText.indexOf("\n",allText.indexOf("H:"))).trim();
-      allAddress = allText.substring(allText.indexOf("\n"),allText.indexOf("H:")).trim();
+      homePhone = allText.substring(allText.indexOf("H:"), allText.indexOf("\n", allText.indexOf("H:"))).trim();
+      allAddress = allText.substring(allText.indexOf("\n"), allText.indexOf("H:")).trim();
       flag = true;
     }
     String mobilePhone = "";
-    if (allText.contains("M:")){
-      mobilePhone = allText.substring(allText.indexOf("M:"),allText.indexOf("\n",allText.indexOf("M:"))).trim();
-      if (!flag){
-        allAddress = allText.substring(allText.indexOf("\n"),allText.indexOf("M:")).trim();
+    if (allText.contains("M:")) {
+      mobilePhone = allText.substring(allText.indexOf("M:"), allText.indexOf("\n", allText.indexOf("M:"))).trim();
+      if (!flag) {
+        allAddress = allText.substring(allText.indexOf("\n"), allText.indexOf("M:")).trim();
         flag = true;
       }
     }
     String workPhone = "";
-    if (allText.contains("W:")){
-      workPhone = allText.substring(allText.indexOf("W:"),allText.indexOf("\n",allText.indexOf("W:"))).trim();
-      if (!flag){
-        allAddress = allText.substring(allText.indexOf("\n"),allText.indexOf("W:")).trim();
+    if (allText.contains("W:")) {
+      workPhone = allText.substring(allText.indexOf("W:"), allText.indexOf("\n", allText.indexOf("W:"))).trim();
+      if (!flag) {
+        allAddress = allText.substring(allText.indexOf("\n"), allText.indexOf("W:")).trim();
       }
     }
     driver.navigate().back();
