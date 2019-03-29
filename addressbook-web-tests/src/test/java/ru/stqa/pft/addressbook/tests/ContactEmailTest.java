@@ -18,7 +18,7 @@ public class ContactEmailTest extends TestBase {
     if (app.сontact().all().size() == 0) {
       app.сontact().create(new ContactData()
               .withFirstname("test_name").withMiddlename("test_middle").withLastname("test_last")
-              .withAddress("Москва").withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986"));
+              .withAddress("Moscow").withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986"));
     }
   }
 

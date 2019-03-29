@@ -54,7 +54,7 @@ public class GroupCreationTests extends TestBase {
   }
 
   @Test(dataProvider = "validGroupsFromXml")
-  public void testGroupCreationTests(GroupData group) {
+  public void testGroupCreation(GroupData group) {
     app.goTo().groupPage();
     Groups before = app.group().all();
     app.group().create(group);

@@ -17,7 +17,7 @@ public class ContactCreationTest extends TestBase {
     app.goTo().сontactPage();
     File photo = new File ("src/test/resources/stru.png");
     ContactData contact = new ContactData().withFirstname("test_name").withMiddlename("test_middle").withLastname("test_last")
-            .withAddress("Москва").withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("test@test.com").withPhoto(photo).withBday("21").withBmonth("January").withByear("1986");
+            .withAddress("Moscow").withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("test@test.com").withPhoto(photo).withBday("21").withBmonth("January").withByear("1986");
     Contacts before = app.сontact().all();
     app.сontact().create(contact);
 
@@ -31,7 +31,7 @@ public class ContactCreationTest extends TestBase {
   public void testBadContactCreationTests() throws Exception {
     app.goTo().сontactPage();
     ContactData contact = new ContactData().withFirstname("test_name'").withMiddlename("test_middle").withLastname("test_last")
-            .withAddress("Москва").withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
+            .withAddress("Moscow").withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
     Contacts before = app.сontact().all();
     app.сontact().create(contact);
     assertEquals(app.сontact().count(),before.size());
