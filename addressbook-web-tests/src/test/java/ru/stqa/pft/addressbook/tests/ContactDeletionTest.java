@@ -23,7 +23,7 @@ public class ContactDeletionTest extends TestBase {
   }
 
   @Test
-  public void testContactDeletionTests() throws Exception {
+  public void testContactDeletion() throws Exception {
     Contacts before = app.сontact().all();
     ContactData deletedContact = before.iterator().next();
     app.сontact().deletionContact(deletedContact);

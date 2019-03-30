@@ -61,7 +61,7 @@ public class ContactCreationTest extends TestBase {
   }
 
   @Test(dataProvider = "validContactsFromJson")
-  public void testContactCreationTests(ContactData contact) throws Exception {
+  public void testContactCreation(ContactData contact) throws Exception {
     if (flagGsonMode = true) {
       File photo = new File("src/test/resources/image_contact/stru.png");
       contact.withPhoto(photo);
@@ -77,7 +77,7 @@ public class ContactCreationTest extends TestBase {
   }
 
   @Test(enabled = false)
-  public void testBadContactCreationTests() throws Exception {
+  public void testBadContactCreation() throws Exception {
     app.goTo().сontactPage();
     ContactData contact = new ContactData().withFirstname("test_name'").withMiddlename("test_middle").withLastname("test_last")
             .withAddress("Moscow").withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
