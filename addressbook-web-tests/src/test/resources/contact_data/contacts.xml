@@ -1,0 +1,50 @@
+<list>
+  <contact>
+    <firstname>test_name0</firstname>
+    <middlename>test_middle0</middlename>
+    <lastname>test_last0</lastname>
+    <address>Moscow</address>
+    <homePhone>+7(4722) 186-658</homePhone>
+    <mobilePhone>22-22-22</mobilePhone>
+    <workPhone>33 33 33</workPhone>
+    <email>test1_0@test.com</email>
+    <email2>test2_0@test.com</email2>
+    <email3>test3_0@test.com</email3>
+    <bday>21</bday>
+    <bmonth>January</bmonth>
+    <byear>1986</byear>
+    <photo>src\test\resources\image_contact\stru.png</photo>
+  </contact>
+  <contact>
+    <firstname>test_name1</firstname>
+    <middlename>test_middle1</middlename>
+    <lastname>test_last1</lastname>
+    <address>Moscow</address>
+    <homePhone>+7(4722) 186-658</homePhone>
+    <mobilePhone>22-22-22</mobilePhone>
+    <workPhone>33 33 33</workPhone>
+    <email>test1_1@test.com</email>
+    <email2>test2_1@test.com</email2>
+    <email3>test3_1@test.com</email3>
+    <bday>21</bday>
+    <bmonth>January</bmonth>
+    <byear>1986</byear>
+    <photo>src\test\resources\image_contact\stru.png</photo>
+  </contact>
+  <contact>
+    <firstname>test_name2</firstname>
+    <middlename>test_middle2</middlename>
+    <lastname>test_last2</lastname>
+    <address>Moscow</address>
+    <homePhone>+7(4722) 186-658</homePhone>
+    <mobilePhone>22-22-22</mobilePhone>
+    <workPhone>33 33 33</workPhone>
+    <email>test1_2@test.com</email>
+    <email2>test2_2@test.com</email2>
+    <email3>test3_2@test.com</email3>
+    <bday>21</bday>
+    <bmonth>January</bmonth>
+    <byear>1986</byear>
+    <photo>src\test\resources\image_contact\stru.png</photo>
+  </contact>
+</list>

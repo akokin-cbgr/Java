@@ -1,0 +1,18 @@
+[
+  {
+    "firstname": "test_name0",
+    "middlename": "test_middle0",
+    "lastname": "test_last0",
+    "address": "Moscow",
+    "homePhone": "+7(4722) 186-658",
+    "mobilePhone": "22-22-22",
+    "workPhone": "33 33 33",
+    "email": "test1_0@test.com",
+    "email2": "test2_0@test.com",
+    "email3": "test3_0@test.com",
+    "bday": "21",
+    "bmonth": "January",
+    "byear": "1986",
+    "photo": {}
+  }
+]

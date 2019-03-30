@@ -23,7 +23,7 @@ public class TestBase {
   public TestBase() {
   }
 
-  @BeforeSuite(alwaysRun = true)
+  @BeforeSuite
   public void setUp() throws Exception {
     app.init();
   }
@@ -33,7 +33,7 @@ public class TestBase {
     app.stop();
   }
 
-  @BeforeMethod(alwaysRun = true)
+  @BeforeMethod
   public void logTestStart(Method m, Object[] p) {
     logger.info("Start test " + m.getName() + " with parameters " + Arrays.asList(p));
   }

@@ -36,7 +36,7 @@ public class ApplicationManager {
 
   public void init() throws IOException {
     String target = System.getProperty("target", "local");
-    properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+    properties.load(new FileReader(new File(String.format("src/test/resources/properties/%s.properties", target))));
     if (browser.equals(BrowserType.FIREFOX)) {
       driver = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)) {
