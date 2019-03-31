@@ -35,5 +35,4 @@ public class ContactModificationTest extends TestBase {
 
   }
 
-
 }
