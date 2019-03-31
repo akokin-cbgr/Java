@@ -60,7 +60,7 @@ public class ContactCreationTest extends TestBase {
     }
   }
 
-  @Test(dataProvider = "validContactsFromJson")
+  @Test(dataProvider = "validContactsFromXml")
   public void testContactCreation(ContactData contact) throws Exception {
     if (flagGsonMode = true) {
       File photo = new File("src/test/resources/image_contact/stru.png");
