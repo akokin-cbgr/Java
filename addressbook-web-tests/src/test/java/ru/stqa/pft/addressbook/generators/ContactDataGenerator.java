@@ -89,10 +89,11 @@ public class ContactDataGenerator {
     File photo = new File("src/test/resources/image_contact/stru.png");
     List<ContactData> contacts = new ArrayList<ContactData>();
     for (int i = 0; i < count; i++) {
-      contacts.add(new ContactData().withFirstname(String.format("test_name%s", i)).withMiddlename(String.format("test_middle%s", i)).withLastname(String.format("test_last%s", i))
-              .withAddress("Moscow").withHomePhone("+7(4722) 186-658").withMobilePhone("22-22-22").withWorkPhone("33 33 33")
+      contacts.add(new ContactData().withFirstname(String.format("test_name%s", i)).withMiddlename(String.format("test_middle%s", i)).withLastname(String.format("test_last%s", i)).withAllNames(null)
+              .withAddress("Moscow").withAllAddress(null)
+              .withHomePhone("+7(4722) 186-658").withMobilePhone("22-22-22").withWorkPhone("33 33 33")
               .withEmail(String.format("test1_%s@test.com", i)).withEmail2(String.format("test2_%s@test.com", i)).withEmail3(String.format("test3_%s@test.com", i))
-              .withPhoto(photo).withBday("21").withBmonth("January").withByear("1986"));
+              .withPhoto(photo).withBday("21").withBmonth("January").withByear("1986").withAllPhones(null).withGroup(null));
     }
     return contacts;
   }

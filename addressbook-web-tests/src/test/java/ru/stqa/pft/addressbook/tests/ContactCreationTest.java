@@ -67,11 +67,11 @@ public class ContactCreationTest extends TestBase {
       contact.withPhoto(photo);
     }
     app.goTo().сontactPage();
-    Contacts before = app.сontact().all();
+    Contacts before = app.db().contacts();
     app.сontact().create(contact);
 
     assertEquals(app.сontact().count(), before.size() + 1);
-    Contacts after = app.сontact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
@@ -81,10 +81,10 @@ public class ContactCreationTest extends TestBase {
     app.goTo().сontactPage();
     ContactData contact = new ContactData().withFirstname("test_name'").withMiddlename("test_middle").withLastname("test_last")
             .withAddress("Moscow").withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986");
-    Contacts before = app.сontact().all();
+    Contacts before = app.db().contacts();
     app.сontact().create(contact);
     assertEquals(app.сontact().count(), before.size());
-    Contacts after = app.сontact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(before));
   }
 

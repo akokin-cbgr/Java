@@ -12,7 +12,7 @@ public class ContactViewTest extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().сontactPage();
-    if (app.сontact().all().size() == 0) {
+    if (app.db().contacts().size() == 0) {
       app.сontact().create(new ContactData()
               .withFirstname("test_name").withMiddlename("test_middle").withLastname("test_last")
               .withAddress("Moscow").withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("test@test.com").withBday("21").withBmonth("January").withByear("1986"));
@@ -22,7 +22,7 @@ public class ContactViewTest extends TestBase {
   @Test()
   public void testContactView() throws Exception {
     app.goTo().сontactPage();
-    ContactData contact = app.сontact().all().iterator().next();
+    ContactData contact = app.db().contacts().iterator().next();
     ContactData contactInfoFromEditForm = app.сontact().infoFromEditFrom(contact);
     ContactData contactInfoFromViewForm = app.сontact().infoFromViewFrom(contact);
 
