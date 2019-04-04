@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -62,9 +63,10 @@ public class ContactCreationTest extends TestBase {
 
   @Test(dataProvider = "validContactsFromXml")
   public void testContactCreation(ContactData contact) throws Exception {
+    Groups groups = app.db().groups();
     if (flagGsonMode = true) {
       File photo = new File("src/test/resources/image_contact/stru.png");
-      contact.withPhoto(photo);
+      contact.withPhoto(photo).inGroup(groups.iterator().next());
     }
     app.goTo().сontactPage();
     Contacts before = app.db().contacts();

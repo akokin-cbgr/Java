@@ -45,9 +45,11 @@ public class ContactHelper extends HelperBase {
     type(By.name("email3"), contactData.getEmail3());
     attache(By.name("photo"), contactData.getPhoto());
     if (creation) {
-      if (contactData.getGroup() != null) {
+      if (contactData.getGroups().size() > 0) {
+        Assert.assertTrue(contactData.getGroups().size() == 1);
 //        typeSelect(By.name("new_group"), contactData.getGroup());
-        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        new Select(driver.findElement(By.name("new_group")))
+                .selectByVisibleText(contactData.getGroups().iterator().next().getName());
       }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));

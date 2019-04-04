@@ -8,6 +8,8 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
@@ -90,9 +92,9 @@ public class ContactData {
   @Column(name = "byear")
   private String byear;
 
-  @Expose
-  @Transient
-  private String group;
+//  @Expose
+//  @Transient
+//  private String group;
 
   @Expose
   @Transient
@@ -103,16 +105,21 @@ public class ContactData {
   @Type(type = "text")
   private String photo;
 
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
+
 
   public ContactData withId(int id) {
     this.id = id;
     return this;
   }
 
-  public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-  }
+//  public ContactData withGroup(String group) {
+//    this.group = group;
+//    return this;
+//  }
 
   public ContactData withAllPhones(String allPhones) {
     this.allPhones = allPhones;
@@ -263,7 +270,6 @@ public class ContactData {
     if (bday != null ? !bday.equals(that.bday) : that.bday != null) return false;
     if (bmonth != null ? !bmonth.equals(that.bmonth) : that.bmonth != null) return false;
     if (byear != null ? !byear.equals(that.byear) : that.byear != null) return false;
-    if (group != null ? !group.equals(that.group) : that.group != null) return false;
     return allPhones != null ? allPhones.equals(that.allPhones) : that.allPhones == null;
   }
 
@@ -286,7 +292,6 @@ public class ContactData {
     result = 31 * result + (bday != null ? bday.hashCode() : 0);
     result = 31 * result + (bmonth != null ? bmonth.hashCode() : 0);
     result = 31 * result + (byear != null ? byear.hashCode() : 0);
-    result = 31 * result + (group != null ? group.hashCode() : 0);
     result = 31 * result + (allPhones != null ? allPhones.hashCode() : 0);
     return result;
   }
@@ -311,7 +316,6 @@ public class ContactData {
             ", bday='" + bday + '\'' +
             ", bmonth='" + bmonth + '\'' +
             ", byear='" + byear + '\'' +
-            ", group='" + group + '\'' +
             ", allPhones='" + allPhones + '\'' +
             '}';
   }
@@ -349,6 +353,10 @@ public class ContactData {
     return mobilePhone;
   }
 
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
+
   public String getWorkPhone() {
     return workPhone;
   }
@@ -365,12 +373,16 @@ public class ContactData {
     return byear;
   }
 
-  public String getGroup() {
-    return group;
-  }
+//  public String getGroup() {
+//    return group;
+//  }
 
   public File getPhoto() {
     return new File(photo);
   }
 
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
 }

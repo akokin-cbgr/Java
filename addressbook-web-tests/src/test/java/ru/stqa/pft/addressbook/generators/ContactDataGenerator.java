@@ -93,7 +93,8 @@ public class ContactDataGenerator {
               .withAddress("Moscow").withAllAddress(null)
               .withHomePhone("+7(4722) 186-658").withMobilePhone("22-22-22").withWorkPhone("33 33 33")
               .withEmail(String.format("test1_%s@test.com", i)).withEmail2(String.format("test2_%s@test.com", i)).withEmail3(String.format("test3_%s@test.com", i))
-              .withPhoto(photo).withBday("21").withBmonth("January").withByear("1986").withAllPhones(null).withGroup(null));
+              .withPhoto(photo).withBday("21").withBmonth("January").withByear("1986").withAllPhones(null));
+//              .withGroup(null));
     }
     return contacts;
   }
