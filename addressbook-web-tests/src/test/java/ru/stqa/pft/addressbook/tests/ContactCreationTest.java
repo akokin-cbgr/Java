@@ -7,7 +7,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
@@ -67,9 +66,7 @@ public class ContactCreationTest extends TestBase {
     Groups groups = app.db().groups();
     if (flagGsonMode = true) {
       File photo = new File("src/test/resources/image_contact/stru.png");
-      GroupData next = groups.iterator().next();
-      contact.withPhoto(photo);
-      contact.inGroup(next);
+      contact.withPhoto(photo).inGroup(groups.iterator().next());
     }
     app.goTo().сontactPage();
     Contacts before = app.db().contacts();

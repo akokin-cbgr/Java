@@ -95,7 +95,7 @@ public class ContactData {
 //  @Expose
 //  @Transient
 
-//  private String group;
+  //  private String group;
   @Expose
   @Transient
   private String allPhones;
@@ -108,7 +108,8 @@ public class ContactData {
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(name = "address_in_groups",
           joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
-  private Set<GroupData> groups = new HashSet<GroupData>();
+  private Set<GroupData> groups = new HashSet<>();
+
 
 
   public Groups getGroups() {
@@ -116,13 +117,15 @@ public class ContactData {
   }
 
   public ContactData inGroup(GroupData group) {
-    this.groups.add(group);
+    groups.add(group);
     return this;
   }
+
   public ContactData withId(int id) {
     this.id = id;
     return this;
   }
+
 //  public ContactData withGroup(String group) {
 //    this.group = group;
 
@@ -326,6 +329,7 @@ public class ContactData {
             ", bmonth='" + bmonth + '\'' +
             ", byear='" + byear + '\'' +
             ", allPhones='" + allPhones + '\'' +
+            ", groups=" + groups +
             '}';
   }
 
@@ -378,8 +382,8 @@ public class ContactData {
     return byear;
   }
 //  public String getGroup() {
-//    return group;
 
+//    return group;
 //  }
 
   public File getPhoto() {

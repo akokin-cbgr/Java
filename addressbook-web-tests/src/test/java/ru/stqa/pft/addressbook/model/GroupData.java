@@ -33,14 +33,14 @@ public class GroupData {
   private String footer;
 
   @ManyToMany(mappedBy = "groups")
-  private Set<ContactData> cotacts = new HashSet<ContactData>();
+  private Set<ContactData> contacts = new HashSet<ContactData>();
 
-  public Contacts getCotacts() {
-    return new Contacts(cotacts);
+  public Contacts getContacts() {
+    return new Contacts(contacts);
   }
 
-  public void setCotacts(Set<ContactData> cotacts) {
-    this.cotacts = cotacts;
+  public void setContacts(Set<ContactData> contacts) {
+    this.contacts = contacts;
   }
 
   @Override

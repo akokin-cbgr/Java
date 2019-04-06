@@ -35,7 +35,7 @@ public class HbConnectionTest {
     }
   }
 
-  @Test
+  @Test(alwaysRun = false)
   public void testHbConnectionGroup() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
@@ -58,7 +58,7 @@ public class HbConnectionTest {
 
     for (ContactData contact : result) {
       System.out.println(contact);
-      System.out.println(contact.getGroups());
+//      System.out.println(contact.getGroups());
     }
   }
 }

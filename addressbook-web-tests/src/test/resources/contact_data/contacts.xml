@@ -14,5 +14,6 @@
     <bmonth>January</bmonth>
     <byear>1986</byear>
     <photo>src\test\resources\image_contact\stru.png</photo>
+    <groups/>
   </contact>
 </list>

@@ -7,13 +7,18 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
+import ru.stqa.pft.addressbook.tests.TestBase;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactDataGenerator {
 
@@ -87,14 +92,15 @@ public class ContactDataGenerator {
 
   private List<ContactData> generatorContacts(int count) {
     File photo = new File("src/test/resources/image_contact/stru.png");
+
     List<ContactData> contacts = new ArrayList<ContactData>();
+
     for (int i = 0; i < count; i++) {
       contacts.add(new ContactData().withFirstname(String.format("test_name%s", i)).withMiddlename(String.format("test_middle%s", i)).withLastname(String.format("test_last%s", i)).withAllNames(null)
               .withAddress("Moscow").withAllAddress(null)
               .withHomePhone("+7(4722) 186-658").withMobilePhone("22-22-22").withWorkPhone("33 33 33")
               .withEmail(String.format("test1_%s@test.com", i)).withEmail2(String.format("test2_%s@test.com", i)).withEmail3(String.format("test3_%s@test.com", i))
               .withPhoto(photo).withBday("21").withBmonth("January").withByear("1986").withAllPhones(null));
-//              .withGroup(null));
     }
     return contacts;
   }
