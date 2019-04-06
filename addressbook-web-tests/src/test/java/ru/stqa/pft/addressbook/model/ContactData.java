@@ -94,8 +94,8 @@ public class ContactData {
 
 //  @Expose
 //  @Transient
-//  private String group;
 
+//  private String group;
   @Expose
   @Transient
   private String allPhones;
@@ -111,14 +111,23 @@ public class ContactData {
   private Set<GroupData> groups = new HashSet<GroupData>();
 
 
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
+
+  public ContactData inGroup(GroupData group) {
+    this.groups.add(group);
+    return this;
+  }
   public ContactData withId(int id) {
     this.id = id;
     return this;
   }
-
 //  public ContactData withGroup(String group) {
 //    this.group = group;
+
 //    return this;
+
 //  }
 
   public ContactData withAllPhones(String allPhones) {
@@ -353,10 +362,6 @@ public class ContactData {
     return mobilePhone;
   }
 
-  public Groups getGroups() {
-    return new Groups(groups);
-  }
-
   public String getWorkPhone() {
     return workPhone;
   }
@@ -372,17 +377,12 @@ public class ContactData {
   public String getByear() {
     return byear;
   }
-
 //  public String getGroup() {
 //    return group;
+
 //  }
 
   public File getPhoto() {
     return new File(photo);
-  }
-
-  public ContactData inGroup(GroupData group) {
-    groups.add(group);
-    return this;
   }
 }

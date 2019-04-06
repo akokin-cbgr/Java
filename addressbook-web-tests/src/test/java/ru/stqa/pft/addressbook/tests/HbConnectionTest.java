@@ -16,6 +16,9 @@ public class HbConnectionTest {
 
   private SessionFactory sessionFactory;
 
+                                                                        // После перезагруки Xampp делать запрос в phpMyAdmin "SET GLOBAL time_zone = '+3:00';"
+
+
   @BeforeClass
   protected void setUp() throws Exception {
     // A SessionFactory is set up once for an application!
@@ -32,7 +35,7 @@ public class HbConnectionTest {
     }
   }
 
-  @Test(enabled = false)
+  @Test
   public void testHbConnectionGroup() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
