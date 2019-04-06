@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.List;
 
@@ -57,6 +58,17 @@ public class ContactHelper extends HelperBase {
     typeSelect(By.name("bday"), contactData.getBday());
     typeSelect(By.name("bmonth"), contactData.getBmonth());
     type(By.name("byear"), contactData.getByear());
+  }
+
+  public void initAddContactToGroup(GroupData next, ContactData contact){
+    int id = contact.getId();
+    click(By.xpath("//*[@id=\"" + id + "\"]"));
+    new Select(driver.findElement(By.name("to_group")))
+            .selectByVisibleText(next.getName());
+    click(By.xpath("//*[@id=\"content\"]/form[2]/div[4]/input"));
+    returnToHome();
+
+
   }
 
 
