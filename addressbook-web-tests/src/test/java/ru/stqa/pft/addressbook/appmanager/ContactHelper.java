@@ -60,15 +60,24 @@ public class ContactHelper extends HelperBase {
     type(By.name("byear"), contactData.getByear());
   }
 
-  public void initAddContactToGroup(GroupData next, ContactData contact){
+  public void initAddContactToGroup(GroupData group, ContactData contact){
     int id = contact.getId();
     click(By.xpath("//*[@id=\"" + id + "\"]"));
     new Select(driver.findElement(By.name("to_group")))
-            .selectByVisibleText(next.getName());
+            .selectByVisibleText(group.getName());
     click(By.xpath("//*[@id=\"content\"]/form[2]/div[4]/input"));
     returnToHome();
+  }
 
 
+  public void initDelContactFromGroup(GroupData groupData){
+    new Select(driver.findElement(By.name("group")))
+            .selectByVisibleText(groupData.getName());
+    while (isElementPresent(By.name("selected[]"))) {
+      click(By.name("selected[]"));
+      click(By.xpath("//*[@id=\"content\"]/form[2]/div[3]/input"));
+      returnToHome();
+    }
   }
 
 
