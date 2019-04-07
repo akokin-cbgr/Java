@@ -9,6 +9,9 @@ import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.File;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 
 public class ContactAddGroup extends TestBase {
 
@@ -29,12 +32,25 @@ public class ContactAddGroup extends TestBase {
     Contacts before = app.db().contacts();
     for (ContactData contact : before) {
       Groups groupAll = app.db().groups();
-      Groups groupFromContact = contact.getGroups();
-      groupAll.removeAll(groupFromContact);
-      for (GroupData group : groupAll) {
-        app.сontact().initAddContactToGroup(group, contact);
+      if (!contact.getGroups().equals(groupAll)) {
+        Groups groupFromContact = contact.getGroups();
+        groupAll.removeAll(groupFromContact);
+        for (GroupData group : groupAll) {
+          app.сontact().initAddContactToGroup(group, contact);
+        }
+        ContactData contactData = app.db().contactsFromId(contact);
+        Groups groups = contactData.getGroups();
+        assertThat(groups, equalTo(app.db().groups()));
+      } else {
+        System.out.println("***********************");
+        System.out.println("All Group already added!");
+        System.out.println("***********************");
       }
     }
+    System.out.println("***********************");
+    System.out.println("All Group been added!");
+    System.out.println("***********************");
+
   }
 
 }

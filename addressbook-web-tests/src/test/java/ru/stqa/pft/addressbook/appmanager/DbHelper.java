@@ -24,7 +24,7 @@ public class DbHelper {
     sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
   }
 
-  public Groups groups(){
+  public Groups groups() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<GroupData> result = session.createQuery("from GroupData").list();
@@ -37,7 +37,7 @@ public class DbHelper {
   }
 
 
-  public Contacts contacts(){
+  public Contacts contacts() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<ContactData> result = session.createQuery("from ContactData where deprecated = '0000-00-00'").list();
@@ -47,6 +47,19 @@ public class DbHelper {
     session.getTransaction().commit();
     session.close();
     return new Contacts(result);
+  }
+
+
+  public ContactData contactsFromId(ContactData contact) {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    List<ContactData> result = session.createQuery("from ContactData where id = " + contact.getId()).list();
+    System.out.println(contact);
+    int i = result.indexOf(contact);
+    ContactData contactData = result.get(i);
+    session.getTransaction().commit();
+    session.close();
+    return contactData;
   }
 
 }
