@@ -12,41 +12,24 @@ import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 
-public class RegistrationTests extends TestBase {
+public class ChangePasswordTests extends TestBase {
 
   @BeforeMethod
   public void startMailServer() {
     app.mail().start();
   }
 
-  @Test(enabled = false)
-  public void testRegistration() throws IOException, MessagingException {
-    long now = System.currentTimeMillis();
-    String user = String.format("user%s", now);
-    String password = "password";
-    String email = String.format("user%s@localhost.localdomain", now);
-    //app.james().createUser(user, password);
-    app.registration().start(user, email);
-    List<MailMessage> mailMessages = app.mail().waitForMail(2, 10000);
-    //List<MailMessage> mailMessages = app.james().waitForMail(user, password, 190000);
-    String confirmationLink = findConfirmationLink(mailMessages, email);
-    app.registration().finish(confirmationLink, password);
-    assertTrue(app.newSession().login(user, password));
-  }
-
-
-  @Test(enabled = true)
+  @Test
   public void testChangePassword() throws IOException, MessagingException {
     String user = "user1";
     String email = "user1@localhost.localdomain";
     String password = "password999";
-    String password2 = "password";
     app.registration().login("administrator", "root");
     app.registration().modifyUserPassword();
     List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
     String confirmationLink = findConfirmationLink(mailMessages, email);
     app.registration().finish(confirmationLink, password);
-    assertTrue(app.newSession().login(user, password2));
+    assertTrue(app.newSession().login(user, password));
   }
 
   private String findConfirmationLink(List<MailMessage> mailMessages, String email) {

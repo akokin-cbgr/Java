@@ -22,4 +22,17 @@ public class RegistrationHelper extends HelperBase{
     click(By.cssSelector("input[value='Update User']"));
   }
 
+  public void login(String username, String password) {
+    driver.get(app.getProperty("web.baseUrl") + "/login.php");
+    type(By.name("username"), username);
+    type(By.name("password"), password);
+    click(By.cssSelector("input[value='Login']"));
+  }
+
+  public void modifyUserPassword() {
+    driver.get(app.getProperty("web.baseUrl") + "/manage_user_edit_page.php?user_id=2");
+    click(By.cssSelector("input[value='Reset Password']"));
+
+  }
+
 }
