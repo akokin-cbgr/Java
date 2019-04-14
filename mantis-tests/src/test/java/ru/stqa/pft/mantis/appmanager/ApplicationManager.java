@@ -74,5 +74,12 @@ public class ApplicationManager {
     this.acceptNextAlert = acceptNextAlert;
   }
 
+  public HttpSession newSession(){
+    return new HttpSession(this);
+  }
 
+
+  public String getProperty(String key) {
+    return properties.getProperty(key);
+  }
 }
