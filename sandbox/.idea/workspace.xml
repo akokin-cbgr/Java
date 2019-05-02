@@ -103,8 +103,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/resources/config_files/testng-groups.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="12" />
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -323,7 +323,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.GroupModificationTests">
+  <component name="RunManager" selected="TestNG.D:/Java_learn/Java/addressbook-web-tests/src/test/resources/config_files/testng-groups.xml">
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.generators.ContactDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -666,8 +666,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.GroupModificationTests" />
         <item itemvalue="TestNG.D:/Java_learn/Java/addressbook-web-tests/src/test/resources/config_files/testng-groups.xml" />
+        <item itemvalue="TestNG.GroupModificationTests" />
         <item itemvalue="TestNG.ru.stqa.pft.sandbox" />
         <item itemvalue="TestNG.GithubTests.testCommits" />
         <item itemvalue="TestNG.RestTests.testCreateIssue" />
@@ -688,9 +688,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 18h 56m 32s.xml">
-      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 19h 01m 14s.xml">
       <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
     </history-entry>
@@ -717,6 +714,9 @@
     </history-entry>
     <history-entry file="GroupModificationTests - 2019.05.02 at 19h 26m 38s.xml">
       <configuration name="GroupModificationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="D__Java_learn_Java_addressbook-web-tests_src_test_resources_config_files_testng-groups_xml - 2019.05.02 at 19h 31m 26s.xml">
+      <configuration name="D:/Java_learn/Java/addressbook-web-tests/src/test/resources/config_files/testng-groups.xml" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1607,8 +1607,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/resources/config_files/testng-groups.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="12" />
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
