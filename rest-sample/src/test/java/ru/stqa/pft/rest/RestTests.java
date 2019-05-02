@@ -35,7 +35,7 @@ public class RestTests {
   }
 
   private Executor getExecutor() {
-    return Executor.newInstance().auth("542fe567d5650797f793b1b6274db1d2", "");
+    return Executor.newInstance().auth("28accbe43ea112d9feb328d2c00b3eed", "");
   }
 
   private int createIssue(Issue newIssue) throws IOException {

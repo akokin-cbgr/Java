@@ -22,6 +22,9 @@
     <ignored path="$PROJECT_DIR$/../rest-sample/.gradle/" />
     <ignored path="$PROJECT_DIR$/../rest-sample/build/" />
     <ignored path="$PROJECT_DIR$/../rest-sample/out/" />
+    <ignored path="$PROJECT_DIR$/../github-sample/.gradle/" />
+    <ignored path="$PROJECT_DIR$/../github-sample/build/" />
+    <ignored path="$PROJECT_DIR$/../github-sample/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +47,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/../addressbook-web-tests">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/../github-sample">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/../mantis-tests">
@@ -86,28 +92,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../rest-sample/build.gradle">
+        <entry file="file://$PROJECT_DIR$/../github-sample/src/test/java/ru/stqa/pft/github/GithubTests.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/Issue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="935">
-              <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestAssuredTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+              <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,13 +104,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestTests.java">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcabi/jcabi-github/0.27/a2750b56eba4cdbbb7e0cae56c8e87abceaf3e1e/jcabi-github-0.27-sources.jar!/com/jcabi/github/RtGithub.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="805">
-              <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="314">
+              <caret line="137" column="11" selection-start-line="137" selection-start-column="11" selection-end-line="137" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -198,15 +183,15 @@
         <option value="$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/SoapTests.java" />
         <option value="$PROJECT_DIR$/../rest-sample/build.gradle" />
         <option value="$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/Issue.java" />
-        <option value="$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestAssuredTests.java" />
         <option value="$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestTests.java" />
+        <option value="$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestAssuredTests.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1280" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="640" />
     <option name="width" value="1280" />
-    <option name="height" value="1410" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -218,6 +203,40 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="addressbook-web-tests" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="github-sample" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="github-sample" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="github-sample" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="github-sample" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="github-sample" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="github" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="sandbox" type="b2602c69:ProjectViewProjectNode" />
               <item name="rest-sample" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
@@ -258,18 +277,16 @@
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554324310032" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rest-sample/build.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../github-sample/build.gradle" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3167702" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Java_learn\Java\addressbook-web-tests\src\test\resources" />
-      <recent name="D:\Java_learn\Java\addressbook-web-tests\src\test\resources\config_files" />
-      <recent name="D:\Java_learn\Java\addressbook-web-tests\src\test\resources\image_contact" />
-      <recent name="D:\Java_learn\Java\addressbook-web-tests\src\test\resources\properties" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.stqa.pft.addressbook.appmanager" />
+      <recent name="ru.stqa.pft.addressbook" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java_learn\Java\soap-sample\src\test\resources" />
@@ -282,9 +299,11 @@
       <recent name="ru.stqa.pft.addressbook.tests" />
       <recent name="ru.stqa.pft.addressbook.generators" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ru.stqa.pft.addressbook.appmanager" />
-      <recent name="ru.stqa.pft.addressbook" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java_learn\Java\addressbook-web-tests\src\test\resources" />
+      <recent name="D:\Java_learn\Java\addressbook-web-tests\src\test\resources\config_files" />
+      <recent name="D:\Java_learn\Java\addressbook-web-tests\src\test\resources\image_contact" />
+      <recent name="D:\Java_learn\Java\addressbook-web-tests\src\test\resources\properties" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -299,7 +318,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.RestTests.testCreateIssue">
+  <component name="RunManager" selected="TestNG.GithubTests.testCommits">
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.generators.ContactDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -396,6 +415,24 @@
       <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.ContactPhoneTest" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GithubTests.testCommits" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="github-sample.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.github.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.github" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.github.GithubTests" />
+      <option name="METHOD_NAME" value="testCommits" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -596,24 +633,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SoapTests.testCreateIssue" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mantis-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.mantis.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.SoapTests" />
-      <option name="METHOD_NAME" value="testCreateIssue" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ru.stqa.pft.addressbook.tests" type="TestNG" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
@@ -643,19 +662,19 @@
       <item itemvalue="TestNG.ContactEmailTest.testContactEmail" />
       <item itemvalue="TestNG.GroupCreationTests" />
       <item itemvalue="TestNG.GroupDeletionTests" />
-      <item itemvalue="TestNG.SoapTests.testCreateIssue" />
       <item itemvalue="TestNG.RestTests" />
       <item itemvalue="TestNG.RestAssuredTests" />
       <item itemvalue="TestNG.RestAssuredTests.testCreateIssue" />
       <item itemvalue="TestNG.RestTests.testCreateIssue" />
+      <item itemvalue="TestNG.GithubTests.testCommits" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.GithubTests.testCommits" />
         <item itemvalue="TestNG.RestTests.testCreateIssue" />
         <item itemvalue="TestNG.RestAssuredTests.testCreateIssue" />
         <item itemvalue="TestNG.RestTests" />
         <item itemvalue="TestNG.RestAssuredTests" />
-        <item itemvalue="TestNG.SoapTests.testCreateIssue" />
       </list>
     </recent_temporary>
   </component>
@@ -673,42 +692,42 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RestTests - 2019.04.16 at 23h 59m 59s.xml">
-      <configuration name="RestTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestTests - 2019.04.17 at 00h 01m 02s.xml">
-      <configuration name="RestTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestAssuredTests - 2019.04.17 at 00h 01m 21s.xml">
-      <configuration name="RestAssuredTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestAssuredTests - 2019.04.17 at 00h 05m 33s.xml">
-      <configuration name="RestAssuredTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestAssuredTests - 2019.04.17 at 00h 05m 43s.xml">
-      <configuration name="RestAssuredTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestTests - 2019.04.17 at 00h 05m 49s.xml">
-      <configuration name="RestTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestAssuredTests_testCreateIssue - 2019.04.17 at 00h 17m 07s.xml">
-      <configuration name="RestAssuredTests.testCreateIssue" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestTests_testCreateIssue - 2019.04.17 at 00h 17m 56s.xml">
-      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="RestTests_testCreateIssue - 2019.04.17 at 00h 19m 33s.xml">
       <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
     </history-entry>
     <history-entry file="RestTests_testCreateIssue - 2019.04.17 at 00h 21m 31s.xml">
       <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 18h 39m 20s.xml">
+      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 18h 55m 43s.xml">
+      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 18h 56m 32s.xml">
+      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 19h 01m 14s.xml">
+      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 19h 09m 26s.xml">
+      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 19h 09m 48s.xml">
+      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 19h 47m 53s.xml">
+      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GithubTests_testCommits - 2019.05.02 at 15h 35m 31s.xml">
+      <configuration name="GithubTests.testCommits" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="0" width="1280" height="1410" extended-state="0" />
+    <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27540985" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13831478" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -717,7 +736,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32869297" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960256" visible="true" weight="0.2521535" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960256" visible="true" weight="0.25212684" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49920508" weight="0.30085075" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -725,7 +744,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32869297" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5007949" side_tool="true" weight="0.30085075" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Build" order="10" weight="0.33281127" />
+      <window_info anchor="bottom" id="Build" order="10" weight="0.33255994" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32637277" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3298887" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -733,7 +752,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Maven" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" weight="0.13831478" />
+      <window_info anchor="right" id="Gradle" order="6" visible="true" weight="0.13831478" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
@@ -752,6 +771,12 @@
           <line>20</line>
           <properties />
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestTests.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -782,43 +807,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupDeletionTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/7.0.0-beta3/26002157600abfaa1060ca485c43aef748b6b659/testng-7.0.0-beta3-sources.jar!/org/testng/internal/TestInvoker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="580" selection-start-line="580" selection-end-line="580" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactAddGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactDelGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/DbHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
@@ -1579,13 +1567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../rest-sample/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/Issue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
@@ -1593,23 +1574,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestAssuredTests.java">
+    <entry file="file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        <state relative-caret-position="629">
+          <caret line="37" column="72" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestTests.java">
+    <entry file="file://$PROJECT_DIR$/../rest-sample/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        <state relative-caret-position="204">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestAssuredTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github-sample/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github-sample/src/test/java/ru/stqa/pft/github/GithubTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcabi/jcabi-github/0.27/a2750b56eba4cdbbb7e0cae56c8e87abceaf3e1e/jcabi-github-0.27-sources.jar!/com/jcabi/github/RtGithub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="137" column="11" selection-start-line="137" selection-start-column="11" selection-end-line="137" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1665,7 +1684,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>rest-sample</last-edited>
+          <last-edited>main|github-sample</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
