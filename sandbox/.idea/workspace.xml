@@ -103,8 +103,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+            <state relative-caret-position="408">
+              <caret line="41" column="55" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -203,7 +203,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="91" />
     <option name="y" value="27" />
     <option name="width" value="1610" />
@@ -342,7 +342,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.D:/Java_learn/Java/addressbook-web-tests/src/test/resources/config_files/testng-groups.xml">
+  <component name="RunManager" selected="TestNG.GroupModificationTests">
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.generators.ContactDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -570,7 +570,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupModificationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="GroupModificationTests" type="TestNG" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
@@ -578,9 +578,18 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ru.stqa.pft.addressbook.tests" />
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.addressbook.tests.GroupModificationTests" />
+      <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -Dbrowser=chrome -Dtarget=remote" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
       <properties />
       <listeners />
       <method v="2">
@@ -677,16 +686,15 @@
       <item itemvalue="TestNG.ContactEmailTest.testContactEmail" />
       <item itemvalue="TestNG.GroupCreationTests" />
       <item itemvalue="TestNG.GroupDeletionTests" />
+      <item itemvalue="TestNG.GroupModificationTests" />
       <item itemvalue="TestNG.RestTests.testCreateIssue" />
       <item itemvalue="TestNG.GithubTests.testCommits" />
       <item itemvalue="TestNG.ru.stqa.pft.sandbox" />
       <item itemvalue="TestNG.D:/Java_learn/Java/addressbook-web-tests/src/test/resources/config_files/testng-groups.xml" />
-      <item itemvalue="TestNG.GroupModificationTests" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.D:/Java_learn/Java/addressbook-web-tests/src/test/resources/config_files/testng-groups.xml" />
-        <item itemvalue="TestNG.GroupModificationTests" />
         <item itemvalue="TestNG.ru.stqa.pft.sandbox" />
         <item itemvalue="TestNG.GithubTests.testCommits" />
         <item itemvalue="TestNG.RestTests.testCreateIssue" />
@@ -707,24 +715,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 19h 01m 14s.xml">
-      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 19h 09m 26s.xml">
-      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 19h 09m 48s.xml">
-      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RestTests_testCreateIssue - 2019.05.01 at 19h 47m 53s.xml">
-      <configuration name="RestTests.testCreateIssue" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="GithubTests_testCommits - 2019.05.02 at 15h 35m 31s.xml">
-      <configuration name="GithubTests.testCommits" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="ru_stqa_pft_sandbox - 2019.05.02 at 18h 08m 21s.xml">
-      <configuration name="ru.stqa.pft.sandbox" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="D__Java_learn_Java_addressbook-web-tests_src_test_resources_config_files_testng-groups_xml - 2019.05.02 at 19h 23m 46s.xml">
       <configuration name="D:/Java_learn/Java/addressbook-web-tests/src/test/resources/config_files/testng-groups.xml" configurationId="TestNG" />
     </history-entry>
@@ -737,12 +727,29 @@
     <history-entry file="D__Java_learn_Java_addressbook-web-tests_src_test_resources_config_files_testng-groups_xml - 2019.05.02 at 19h 31m 26s.xml">
       <configuration name="D:/Java_learn/Java/addressbook-web-tests/src/test/resources/config_files/testng-groups.xml" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="GroupModificationTests - 2019.05.02 at 20h 20m 43s.xml">
+      <configuration name="GroupModificationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModificationTests - 2019.05.02 at 20h 21m 24s.xml">
+      <configuration name="GroupModificationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModificationTests - 2019.05.02 at 20h 22m 27s.xml">
+      <configuration name="GroupModificationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModificationTests - 2019.05.02 at 20h 22m 43s.xml">
+      <configuration name="GroupModificationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModificationTests - 2019.05.02 at 20h 22m 56s.xml">
+      <configuration name="GroupModificationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="GroupModificationTests - 2019.05.02 at 20h 24m 32s.xml">
+      <configuration name="GroupModificationTests" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="91" y="27" width="1610" height="1281" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22451612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13831478" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -751,7 +758,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.37020907" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960256" weight="0.25212684" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960256" visible="true" weight="0.25212684" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49920508" weight="0.30085075" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1617,8 +1624,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+        <state relative-caret-position="408">
+          <caret line="41" column="55" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="55" />
         </state>
       </provider>
     </entry>
