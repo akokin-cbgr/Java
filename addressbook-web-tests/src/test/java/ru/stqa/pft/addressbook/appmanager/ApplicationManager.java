@@ -111,5 +111,8 @@ public class ApplicationManager {
     this.acceptNextAlert = acceptNextAlert;
   }
 
+  public byte[] takeScreenshot(){
+    return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+  }
 
 }

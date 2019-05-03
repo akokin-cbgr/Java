@@ -5,6 +5,10 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    agent
+}
+
 dependencies {
     implementation 'org.testng:testng:7.0.0-beta3'
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
@@ -17,6 +21,8 @@ dependencies {
 //    implementation 'mysql:mysql-connector-java:5.0.4'
     implementation 'org.hibernate:hibernate-core:5.4.2.Final'
 //    implementation 'org.hibernate:hibernate-core:6.0.0.Alpha2'
+    agent "org.aspectj:aspectjweaver:1.8.0"
+    compile "ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0.RC4"
 }
 
 task testGroups(type: Test) {
@@ -40,6 +46,9 @@ task testGroups(type: Test) {
     }
 }
 
+testGroups.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
 
 task testContacts(type: Test) {
     useTestNG {
