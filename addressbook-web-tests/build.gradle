@@ -75,6 +75,10 @@ task testContacts(type: Test) {
     }
 }
 
+testContacts.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
 task rf(type: JavaExec) {
     main = 'org.robotframework.RobotFramework'
     classpath = sourceSets.test.runtimeClasspath
